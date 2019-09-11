@@ -1,0 +1,19 @@
+{  
+    "require": {
+        "twig/twig": "^2.11",
+        "altorouter/altorouter": "^1.2",
+        "vlucas/phpdotenv": "^3.6"
+    },
+    
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+
+        "files": ["App/function/helper.php"]
+    },
+
+    "config": {
+        "optimize-autoloader": true
+    }
+}
