@@ -2,7 +2,11 @@
 
 include __DIR__ . "/../app/config/init.php";
 
-//echo getenv('DEVELOPER');
+// initiate the router
+
+new App\routing\RouteDispatch($router);
+
+
 
 
 

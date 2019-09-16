@@ -2,9 +2,11 @@
 RewriteEngine On
 #   RewriteBase /
 
+#if requested file is not a real file
 RewriteCond %{REQUEST_FILENAME} !-f
 
 #   RewriteCond %{REQUEST_FILENAME} !-d
 #   RewriteCond %{REQUEST_FILENAME} !-1
 
+#rewrite rule - redirect to index.php
 RewriteRule . index.php [L]

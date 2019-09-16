@@ -1,7 +1,5 @@
 <?php
 
-include __DIR__ . "/../../vendor/autoload.php";
+require __DIR__ . "/_env.php";
 
-include __DIR__ . "/_env.php";
-
-include __DIR__ . "/../routing/router.php";
+require __DIR__ . "/../routing/router.php";

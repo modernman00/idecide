@@ -9,7 +9,7 @@ class Index extends Base
 
     function homePage() {
 
-        echo "it is well";
+        echo "<h2> INSIDE HOMEPAGE FROM CONTROLLER </h2>";
     }
     
 }

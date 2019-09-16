@@ -1,17 +1,35 @@
 <?php
 
-//namespace App\routing;
+
+use App\controller\Index as index;
 
 $router = new AltoRouter;
 
-$router->map("GET",  "/",  "",  "home_us");
+$router->map('GET', '/about', 'App\controller\About@show', 'about us' );
+$router->map('GET', '/', '', 'home');
+$router->map('GET', '/career', 'App\controller\Career@show', 'career page');
 
-// map homepage using callable
+//var_dump($router);
 
-
-
-//$router->map('POST', '/about', 'App\controller\index@homePage', 'About us');
-
- $match = $router->match();
-
+// map homepage
+// $router->map('GET', '/about', function () {
+//     require __DIR__ . '/../resources/views/home.php';
+// });
+/* 
+$match = $router->match();
 var_dump($match);
+//var_dump($match['target']);
+echo "<br>";
+
+print_r(explode('@', $match['target']));
+
+if($match) {
+
+    $index = new index;
+    $index->homePage();
+
+} else {
+    header($_SERVER['SERVER_PROTOCOL'].'404 NOT FOUND');
+    echo "PAGE NOT FOUND";
+}
+ */
