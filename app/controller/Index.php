@@ -7,9 +7,9 @@ namespace App\controller;
 class Index extends Base
 {
 
-    function homePage() {
+    function show() {
 
-        echo "<h2> INSIDE HOMEPAGE FROM CONTROLLER </h2>";
+        return view('public/home');
     }
     
 }
