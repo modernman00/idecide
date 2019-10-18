@@ -1,0 +1,22 @@
+# profile
+DEVELOPER= "modMan"
+STATE = 
+APP_URL =http://idecide.dev.com
+APP_ENV = local
+
+#database
+
+DB_DRIVER = 'mysql'
+DB_HOST  = localhost
+DB_NAME = showal
+DB_USERNAME = root
+DB_PASSWORD = ''
+
+#MAIL CRED
+
+APP_USERNAME = 
+APP_PASSWORD = 
+SMTP_PORT = 
+SMTP_HOST = 
+APP_EMAIL = 
+APP_SENDER = 
