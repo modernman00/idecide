@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    padding: 10px;
+    line-height: 1.7;
+    color: rgb(119, 119, 119);
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.header{
+    background-image: linear-gradient(rgba(0, 0, 255, 0.5), 
+    rgba(255, 255, 0, 0.5)), 
+    url("../img/bg_home1.jpg");
+    height: 95vh;
+    background-size: cover;
+    background-position:top;
+    background-color: #169B81;
+
+}
