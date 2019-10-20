@@ -18,13 +18,17 @@ body{
     background-image: linear-gradient(rgba(0, 0, 255, 0.5), 
     rgba(255, 255, 0, 0.5)), 
     url("../img/bg_home1.jpg");
+
     height: 95vh;
     background-size: cover;
     background-position: center;
     /* background-color: #169B81; */
     background-color: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
     /* clip-path: circle(50%); */
-    position: relative;     
+    position: relative;
+    animation-name: changebackground;
+    animation-duration: 10s;
+     
 }
 
 .logo-box{
@@ -75,8 +79,6 @@ body{
     animation-name: moveright;
     animation-duration: 2s;
 }
-/* 
-animation */
 
 @keyframes moveleft{
     0% {opacity: 0;
@@ -106,27 +108,20 @@ animation */
     }
 }
 
-.btn:link, 
-.btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 15px, 40px;
-    display: inline-block;
-    margin-top: 10px;
-    width: 130px;
-}
-
-.btn:hover{
-    transform: translateY(-3px);
-}
-
-.btn:active{
-    transform: translateY(-1px);
-}
-
-.btn-white{
-    background-color: #fff;
-    color: #777;
-    opacity: 30;
+@keyframes changebackground{
+ 
+       0% {opacity: 20;
+        background-image: url('../img/logo/cover.png');
+        /* transform: translateX(100px); */
+       }
+       50% {opacity: 40;
+        background-image: url('../img/logo/default.png');
+        /* transform: translateX(-100px); */
+       }
+ 
+       100% {opacity: 40;
+        background-image: url('../img/bg_home1.jpg');
+        /* transform: translate(0px); */
+       }
 
 }

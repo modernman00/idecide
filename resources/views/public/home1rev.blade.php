@@ -17,10 +17,11 @@
 
     <div class="textbox">
         <h1 class="heading-primary">
-            <span class="heading-primary-main">IDecide</span>
+            <span class="heading-primary-main">IDecide</span><br>
             <span class="heading-primary-sub">Making Better Decisions</span>
         </h1>
-    <a href="#" class="btn btn-white">click here </a>
+
+        <div class="animate">CHECK FOR INFOMATION</div>
 
     </div>
 </header>
