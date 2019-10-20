@@ -75,6 +75,11 @@ body{
     animation-name: moveright;
     animation-duration: 2s;
 }
+
+.btn-animate{
+    animation-name: button;
+    animation-duration: 2s;
+}
 /* 
 animation */
 
@@ -106,14 +111,31 @@ animation */
     }
 }
 
+@keyframes button{
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    50%{
+        opacity: 20;
+        transform: translateX(-100px);
+
+    }
+    100%{
+        opacity: 30;
+        transform: translate(0);
+    }
+}
+
 .btn:link, 
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px, 40px;
     display: inline-block;
     margin-top: 10px;
-    width: 130px;
+    width: 200px;
+    border-radius: 100px;
+    position: relative;
 }
 
 .btn:hover{
@@ -128,5 +150,27 @@ animation */
     background-color: #fff;
     color: #777;
     opacity: 30;
+}
 
+.btn::after{
+     content: "";
+     text-decoration: none;
+     display: inline-block;
+     border-radius: 100px;
+     position: absolute;
+     z-index: -1;
+     height:100%;
+     width: 100%;
+     top: 10;
+     left: 0;
+     transition: all .4s;
+}
+
+.btn-white::after{
+    /* background-color: #ebf8e1; */
+    background-color: #f69d3c;
+}
+
+.btn:hover::after {
+    transform: scale(1.4);
 }

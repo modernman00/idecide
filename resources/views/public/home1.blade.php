@@ -20,7 +20,7 @@
             <span class="heading-primary-main">IDecide</span>
             <span class="heading-primary-sub">Making Better Decisions</span>
         </h1>
-    <a href="#" class="btn btn-white">click here </a>
+    <a href="#" class="btn btn-white btn-animate">click here </a>
 
     </div>
 </header>
