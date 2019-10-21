@@ -6,6 +6,7 @@ use App\controller\Index as index;
 $router = new AltoRouter;
 
 $router->map('GET', '/about', 'App\controller\About@show', 'about us' );
+
 $router->map('GET', '/', 'App\controller\Index@show', 'home');
 
 $router->map('GET', '/main', 'App\controller\Index@main', 'homepage');

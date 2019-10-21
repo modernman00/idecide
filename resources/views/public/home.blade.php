@@ -32,52 +32,49 @@
 
 <form action="" method="post">
 
-<div class="columns">
+    <div class="columns">
 
-    <div class="column">
-        <div class="card">
-            <div class="card-content">
-                <h3 class="title">What do you want to buy?</h3>
-                <h4 class="subtitle">do you know what?</h4>
-                <input class="input" type="text" placeholder="Text input">
-            </div>
-
-        </div>
-
-
-
-    </div>
-
-
-    <div class="column">
-        <div class="card">
-            <div class="card-content">
-                <h3 class="title">Desire</h3>
-                <h4 class="subtitle">How long have you been thinking about it?</h4>
-                <div class="select">
-                    <select>
-                        <option>Select dropdown</option>
-                        <option>Just now</option>
-                        <option>One month</option>
-                        <option>Two Months</option>
-                        <option>Three Months Plus</option>
-                    </select>
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="title">What do you want to buy?</h3>
+                    <h4 class="subtitle">do you know what?</h4>
+                    <input class="input" type="text" placeholder="Text input">
                 </div>
+
             </div>
+
+
 
         </div>
 
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="title">Why do you need it?</h3>
+                    <h4 class="subtitle">do you know what?</h4>
+                    <input class="input" type="text" placeholder="Text input">
+                </div>
+
+            </div>
 
 
-    </div>
 
-    <div class="column">
-        <div class="card">
-            <div class="card-content">
-                <h3 class="title">Cost</h3>
-                <h4 class="subtitle">What will it cost?</h4>
-                <div class="control">
-                    <input class="input" type="number" placeholder="Text input">
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="title">Gender</h3>
+                    <h4 class="subtitle">Gender?</h4>
+                    <div class="select">
+                        <select>
+                            <option>Select dropdown</option>
+                            <option>Female</option>
+                            <option>Male</option>
+
+                        </select>
+                    </div>
                 </div>
 
             </div>
@@ -88,115 +85,236 @@
 
 
 
-    </div>
-
-    <div class="column">
-        <div class="card">
-            <div class="card-content">
-                <h3 class="title">Finance</h3>
-                <h4 class="subtitle">Where would you source the money from?</h4>
-
-                <div class="select">
-                    <select>
-                        <option>Select dropdown</option>
-                        <option>Savings</option>
-                        <option>Salary/Income</option>
-                        <option>Free Cash</option>
-                        <option>Credit Card</option>
-                        <option>Gift</option>
-                        <option>Loan</option>
-                        <option>Monthly Repayment</option>
-                    </select>
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="title">Desire</h3>
+                    <h4 class="subtitle">How long have you been thinking about it?</h4>
+                    <div class="select">
+                        <select>
+                            <option>Select dropdown</option>
+                            <option>Just now</option>
+                            <option>One month</option>
+                            <option>Two Months</option>
+                            <option>Three Months Plus</option>
+                        </select>
+                    </div>
                 </div>
 
             </div>
+
+
+
         </div>
 
-    </div>
-</div>
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="title">Cost</h3>
+                    <h4 class="subtitle">What will it cost?</h4>
+                    <div class="control">
+                        <input class="input" type="number" placeholder="Text input">
+                    </div>
 
-<div class="columns">
+                </div>
 
-    <div class="column">
-        <div class="card">
-            <div class="card-content">
-                <h3 class="title">Need Or Want</h3>
-                <h4 class="subtitle"> Is this a "Need - necessary" or a "Want - nice to have"?</h4>
 
-                <div class="select">
-                    <select>
-                        <option>Select dropdown</option>
-                        <option>Just now</option>
-                        <option>One month</option>
-                        <option>Two Months</option>
-                        <option>Three Months Plus</option>
-                    </select>
+
+            </div>
+
+
+
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="title">Finance</h3>
+                    <h4 class="subtitle">Where would you source the money from?</h4>
+
+                    <div class="select">
+                        <select>
+                            <option>Select dropdown</option>
+                            <option>Savings</option>
+                            <option>Salary/Income</option>
+                            <option>Free Cash</option>
+                            <option>Credit Card</option>
+                            <option>Gift</option>
+                            <option>Loan</option>
+                            <option>Monthly Repayment</option>
+                        </select>
+                    </div>
+
                 </div>
             </div>
 
         </div>
-
-
-
     </div>
-    <div class="column">
-        <div class="card">
-            <div class="card-content">
-                <h3 class="title">Need Purchase</h3>
-                <h4 class="subtitle">do you know what?</h4>
+
+    <!-- OPTIONS, FULILMENTS AND NECESSITY -->
+    <div class="columns">
+
+        <!-- NECESSITY -->
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="title">Necessity</h3>
+                    <h4 class="subtitle"> Is this a "Need - necessary" or a "Want - nice to have"?</h4>
+
+                    <div class="select">
+                        <select>
+                            <option>Select dropdown</option>
+                            <option>Necessary - I really need it/option>
+                            <option>I love and want it</option>
+                            <option>Just something nice to have</option>
+                            <option>Hmmm, not a need or want - just feel like spending</option>
+                        </select>
+                    </div>
+                </div>
+
             </div>
+
+
+
+        </div>
+        <!-- FULFILMENT -->
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="title">Self Fulfilment</h3>
+                    <h4 class="subtitle">if you bought it, how would it make you feel?</h4>
+
+                    <div class="select">
+                        <select>
+                            <option>Select dropdown</option>
+                            <option>Very happy even if bought with loan/credit</option>
+                            <option>It will surely add to my self esteem</option>
+                            <option>I think it should make me happy</option>
+                            <option>Makes me feel relevant</option>
+                            <option>Happy at first, but may later regret buying it</option>
+                            <option>It won't make a difference to how I feel</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <!-- OPTIONS -->
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="title">OPTIONS</h3>
+                    <h4 class="subtitle">Have you considered other options or alternatives?</h4>
+
+                    <div class="select">
+                        <select>
+                            <option>Select dropdown</option>
+                            <option>Yes, and am convinced this is what I want</option>
+                            <option>No, I have not really thought about other options</option>
+                            <option>I don't look at other options. Am clear this is what I want.</option>
+
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+
 
         </div>
 
 
-
     </div>
-    <div class="column">
-        <div class="card">
-            <div class="card-content">
-                <h3 class="title">Need Purchase</h3>
-                <h4 class="subtitle">do you know what?</h4>
+
+    <!-- FINANCES -->
+
+    <div class="columns">
+        <!-- AFFORDABILITY -->
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="title">AFFORDABILITY</h3>
+                    <h4 class="subtitle">Can you afford it without stretching your finance?</h4>
+
+                    <div class="select">
+                        <select>
+                            <option>Select dropdown</option>
+                            <option>Yes! I can afford without over reaching</option>
+                            <option>I may need to my expenses in other areas</option>
+                            <option>Makes no difference because someone else is paying</option>
+                            <option>Big risk to my finance but I think it will be fine</option>
+                        </select>
+                    </div>
+                </div>
+
             </div>
+
+
 
         </div>
 
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="title">CONCERNS</h3>
+                    <h4 class="subtitle">Would you say there are concerns about your debt level/expenses/job/income?</h4>
 
+                    <div class="select">
+                        <select>
+                            <option>Select dropdown</option>
+                            <option>Income is fine and expenses and debt level are quite low </option>
+                            <option>Am concern but this purchase shouldn't make a difference</option>
+                            <option>I have serious concerns</option>
+                       
+                        </select>
+                    </div>
+                </div>
 
-    </div>
-    <div class="column">
-        <div class="card">
-            <div class="card-content">
-                <h3 class="title">Need Purchase</h3>
-                <h4 class="subtitle">do you know what?</h4>
             </div>
+
+
 
         </div>
 
+        <div class="column">
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="title">MEANS TO AN END/h3>
+                    <h4 class="subtitle">Sometimes, purchase could be an investment in one's goal and self esteem?</h4>
 
+                    <div class="select">
+                        <select>
+                            <option>Select dropdown</option>
+                            <option>Absolutely, it will boost my confidence and motivation</option>
+                            <option>I may need cut my expenses in other areas</option>
+                            <option>Makes no difference because someone else is paying</option>
+                            <option>Big risk to my finance but I think it will be fine</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
 
     </div>
 
-</div>
 
-<!-- <div class="columns">
-
-    <div class="column">1</div>
-    <div class="column">2</div>
-    <div class="column">1</div>
-    <div class="column">2</div>
-
-</div> -->
-<!-- 
-<div class="field">
-    <div class="control">
-        <label class="checkbox">
-            <input type="checkbox">
-            I agree to the <a href="#">terms and conditions</a>
-        </label>
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+                <input type="checkbox">
+                I agree to the <a href="#">terms and conditions</a>
+            </label>
+        </div>
     </div>
-</div>
 
-<div class="field">
+    <!-- <div class="field">
     <div class="control">
         <label class="radio">
             <input type="radio" name="question">
@@ -207,16 +325,16 @@
             No
         </label>
     </div>
-</div>
+</div> -->
 
-<div class="field is-grouped">
-    <div class="control">
-        <button class="button is-large is-primary">Submit</button>
+    <div class="field is-grouped">
+        <div class="control">
+            <button class="button is-large is-primary">Submit</button>
+        </div>
+
     </div>
 
-</div>
--->
 
 </form>
 
-@endsection 
+@endsection

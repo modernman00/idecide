@@ -9,12 +9,12 @@ class Index extends Base
 
     function show() {
 
-        return view('public/home');
+        return view('public/home1');
     }
 
     function main() {
 
-        return view('public/home1');
+        return view('public/home');
     }
     
     
