@@ -6,8 +6,7 @@
 @section('content')
 
 <header class="header">
-
-    <div class="logo-box">
+ <div class="logo-box">
 
         <!-- <img src="/public/img/logo/default.png" alt="logo"  height="50" width="50" class="justlogo"> -->
 
@@ -24,6 +23,11 @@
 
     </div>
 </header>
+
+<main>
+
+
+</main>
 
 
 @endsection

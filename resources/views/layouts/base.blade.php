@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>admin @yield('title')</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-        <link rel="stylesheet" href="/css/allcss.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>admin @yield('title')</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
 
-    <body>
+<body>
 
-        <!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+
+    <!-- <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="https://bulma.io">
                     <img src="https://images.unsplash.com/photo-1518458028785-8fbcd101ebb9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" width="112" height="28">
@@ -74,24 +75,24 @@
             </div>
         </nav> -->
 
-        
 
 
 
 
-<!-- 
+
+    <!-- 
         <div class="container"> -->
 
-            @yield('content')
+    @yield('content')
 
 
 
 
-        <!-- </div> -->
+    <!-- </div> -->
 
 
-        <script src="/js/alljss"></script>
+    <script src="/js/alljss"></script>
 
-    </body>
+</body>
 
 </html>
