@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
 
-mix.js('resources/asset/js/index.js', 'public/js/alljs.js').sass("resource/asset/sass/main.scss", "public/css/index.css")
+mix.js('resources/asset/js/index.js', 'public/js/index2.js')
+.sass("resources/asset/sass/main.scss", "public/css/index2.css")
 .setPublicPath("public")

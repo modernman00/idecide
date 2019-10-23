@@ -84,17 +84,64 @@
 /******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ "./resources/asset/js/index.js":
+/*!*************************************!*\
+  !*** ./resources/asset/js/index.js ***!
+  \*************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _matrix__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./matrix */ "./resources/asset/js/matrix.js");
+
+console.log(_matrix__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
+/***/ "./resources/asset/js/matrix.js":
+/*!**************************************!*\
+  !*** ./resources/asset/js/matrix.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var x = function x(id) {
+  return document.getElementById(id).value;
+};
+
+var requirement2 = x("requirement");
+var requirement = "enjoyment";
+/* harmony default export */ __webpack_exports__["default"] = (requirement);
+
+/***/ }),
+
+/***/ "./resources/asset/sass/main.scss":
+/*!****************************************!*\
+  !*** ./resources/asset/sass/main.scss ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 0:
 /*!****************************************************************************!*\
-  !*** multi ./resources/asset/js/index2.js ./resource/asset/sass/main.scss ***!
+  !*** multi ./resources/asset/js/index.js ./resources/asset/sass/main.scss ***!
   \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-!(function webpackMissingModule() { var e = new Error("Cannot find module '/Applications/MAMP/htdocs/idecide/resources/asset/js/index2.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-!(function webpackMissingModule() { var e = new Error("Cannot find module '/Applications/MAMP/htdocs/idecide/resource/asset/sass/main.scss'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+__webpack_require__(/*! /Applications/MAMP/htdocs/idecide/resources/asset/js/index.js */"./resources/asset/js/index.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/idecide/resources/asset/sass/main.scss */"./resources/asset/sass/main.scss");
 
 
 /***/ })
-/******/ ]);
+
+/******/ });
