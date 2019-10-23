@@ -11,6 +11,8 @@ $router->map('GET', '/', 'App\controller\Index@show', 'home');
 
 $router->map('GET', '/main', 'App\controller\Index@main', 'homepage');
 
+$router->map('POST', '/submit', 'App\controller\Score@show', 'Cal');
+
 $router->map('GET', '/career', 'App\controller\Career@show', 'career page');
 
 //var_dump($router);
