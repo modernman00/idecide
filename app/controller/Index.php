@@ -16,6 +16,12 @@ class Index extends Base
 
         return view('public/home');
     }
+
+    function decide() {
+
+        return view('public/decide');
+    }
+    
     
     
 }
