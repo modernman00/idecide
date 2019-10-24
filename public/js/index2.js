@@ -138,8 +138,8 @@ var requirement = "enjoyment";
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/idecide/resources/asset/js/index.js */"./resources/asset/js/index.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/idecide/resources/asset/sass/main.scss */"./resources/asset/sass/main.scss");
+__webpack_require__(/*! C:\xampp\htdocs\idecide\resources\asset\js\index.js */"./resources/asset/js/index.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\idecide\resources\asset\sass\main.scss */"./resources/asset/sass/main.scss");
 
 
 /***/ })
