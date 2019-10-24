@@ -11,6 +11,8 @@ $router->map('GET', '/', 'App\controller\Index@show', 'home');
 
 $router->map('GET', '/decide', 'App\controller\Index@decide', 'decide');
 
+$router->map('GET', '/decide2', 'App\controller\Index@main2', 'decide2');
+
 
 $router->map('GET', '/main', 'App\controller\Index@main', 'homepage');
 

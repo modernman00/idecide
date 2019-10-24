@@ -66,65 +66,65 @@
 
                 </div>
                 <!-- 
-            <div class="column">
-                <div class="card">
-                    <div class="card-content">
-                        <h3 class="title">Gender</h3>
-                        <h4 class="subtitle">Gender?</h4>
-                        <div class="select">
-                            <select name="gender">
-                                <option>Select dropdown</option>
-                                <option>Female</option>
-                                <option>Male</option>
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-content">
+                                    <h3 class="title">Gender</h3>
+                                    <h4 class="subtitle">Gender?</h4>
+                                    <div class="select">
+                                        <select name="gender">
+                                            <option>Select dropdown</option>
+                                            <option>Female</option>
+                                            <option>Male</option>
 
-                            </select>
-                        </div>
-                    </div>
+                                        </select>
+                                    </div>
+                                </div>
 
-                </div>
-
-
-
-            </div> -->
+                            </div>
 
 
 
-                <!-- <div class="column">
-                <div class="card">
-                    <div class="card-content">
-                        <h3 class="title">Desire</h3>
-                        <h4 class="subtitle">How long have you been thinking about it?</h4>
-                        <div class="select">
-                            <select name="time">
-                                <option>Select dropdown</option>
-                                <option>Just now</option>
-                                <option>One month</option>
-                                <option>Two Months</option>
-                                <option>Three Months Plus</option>
-                            </select>
-                        </div>
-                    </div>
-
-                </div>
+                        </div> -->
 
 
 
-            </div> -->
+                            <!-- <div class="column">
+                            <div class="card">
+                                <div class="card-content">
+                                    <h3 class="title">Desire</h3>
+                                    <h4 class="subtitle">How long have you been thinking about it?</h4>
+                                    <div class="select">
+                                        <select name="time">
+                                            <option>Select dropdown</option>
+                                            <option>Just now</option>
+                                            <option>One month</option>
+                                            <option>Two Months</option>
+                                            <option>Three Months Plus</option>
+                                        </select>
+                                    </div>
+                                </div>
 
-                <!-- <div class="column">
-                <div class="card">
-                    <div class="card-content">
-                        <h3 class="title">Cost</h3>
-                        <h4 class="subtitle">What will it cost?</h4>
-                        <div class="control">
-                            <input class="input" type="number" placeholder="Text input" id="cost" name="cost">
-                        </div>
+                            </div>
 
-                    </div>
 
-                </div>
 
-            </div> -->
+                        </div> -->
+
+                            <!-- <div class="column">
+                            <div class="card">
+                                <div class="card-content">
+                                    <h3 class="title">Cost</h3>
+                                    <h4 class="subtitle">What will it cost?</h4>
+                                    <div class="control">
+                                        <input class="input" type="number" placeholder="Text input" id="cost" name="cost">
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div> -->
 
                 <div class="column">
                     <div class="card">
