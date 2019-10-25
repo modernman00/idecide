@@ -7,7 +7,9 @@ class Score extends Index
 {
     function show() {
 
-        var_export($_POST);
+        var_dump($_POST);
+
+        if($_POST['savings/'])
 
     }
     
