@@ -1,4 +1,5 @@
-{  
+{  "name": "idecide",
+    "description": "online tool to help you decide",
     "require": {
         "twig/twig": "^2.11",
         "altorouter/altorouter": "^1.2",

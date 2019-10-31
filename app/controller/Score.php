@@ -9,7 +9,7 @@ class Score extends Index
 
         var_dump($_POST);
 
-        if($_POST['savings/'])
+        if($_POST['savings/']);
 
     }
     
