@@ -1,3 +1,4 @@
-import requirement from "./matrix"
+window.$ = window.JQuery = require('jquery');
+require('./gauge.js');
+require('./googleGauge.js');
 
-console.log(requirement)
