@@ -5,7 +5,15 @@
 
 @section('content')
 
-<h1 style="text-align:center"> Decision Page</h1>
+<h1 style="text-align:center; color:black;"> DECISION PAGE</h1>
+<br>
+<hr>
+
+@isset($categories)
+    @foreach ($categories as $cat)        
+    @endforeach
+    
+@endisset
 
 @isset($pullData)
     @foreach ($pullData as $data)        
@@ -13,24 +21,30 @@
     
 @endisset
 
+
+
 <input type="hidden" name="totalScore" id="totalScore" value="{{ $data['totalScore'] }}">
+
+<input type="hidden" name="financeCat" id="financeCat" value="{{ $cat['finance'] }}">
+
+<input type="hidden" name="purposeCat" id="purposeCat" value="{{ $cat['purpose'] }}">
 
 
 <div class="row">
 
     <div class="col-sm-6">
 
-        {{--  <div id="chart_div" style="width: 400px; height: 520px;">
-        </div>  --}}
-        <div style="width: 500px; height: 620px;"><div id="gaugeArea2"></div>
+        <div style="width: 200px; height: 320px;"><div id="gaugeArea2"></div>
    
     </div>
     </div>
 
-    <div class="col-sm-6">
+    <div class="col-sm-6" style="background-color: #D11206; color:white;";>
+
+      {{-- ALGORITHM FOR THE MAIN DECISION --}}
 
         @if ($data['totalScore'] > 85)
-            Please, buy the  {{ $data['requirement'] }}
+           <h3><i> Good News! Based strictly on the information you provided, iDecide believes that buying the  {{ $data['requirement'] }} is a good decision.</i> </h3>
 
         @elseif($data['totalScore'] > 65 && $data['totalScore'] < 85 )
             <h2>Please, have a rethink about buying the  {{ $data['requirement'] }}, and these are the areas we think you should consider</h2>
@@ -66,23 +80,31 @@
 
 <hr>
 
-<a href="http://recogizer.com/en">
+{{-- <a href="http://recogizer.com/en">
     <div class="header">
       <img src="logo-recogizer.jpg" />
       <div class="subheader">_open_source</div>
     </div>
-  </a>
+  </a> --}}
   <div class="gauge-row">
-    <div><div id="gaugeArea1"></div><div class="edit" onclick="edit(1)">edit</div></div>
+    {{-- <div><div id="gaugeArea1"></div><div class="edit" onclick="edit(1)">edit</div></div> --}}
     {{--  <div><div id="gaugeArea2"></div><div class="edit" onclick="edit(2)">edit</div></div>  --}}
-    <div><div id="gaugeArea3"></div><div class="edit" onclick="edit(3)">edit</div></div>
-    <div><div id="gaugeArea4"></div><div class="edit" onclick="edit(4)">edit</div></div>
+    {{-- <div><div id="gaugeArea3"></div><div class="edit" onclick="edit(3)">edit</div></div> --}}
+    <div>
+      <div id="gaugeArea4"></div>
+    
+    </div>
   </div>
 
-  <footer>© 2018 RECOGIZER GROUP GmbH - All Rights Reserved.</footer>
+  {{-- <footer>© 2018 RECOGIZER GROUP GmbH - All Rights Reserved.</footer> --}}
   <script src="https://unpkg.com/gauge-chart@0.5.1/dist/bundle.js"></script>
+
   <script>
-          const totalScore = parseInt(document.getElementById('totalScore').value);
+    const totalScore = parseInt(document.getElementById('totalScore').value);
+
+    const financeScore = parseInt(document.getElementById('financeCat').value);
+
+    const purposeScore = parseInt(document.getElementById('purposeCat').value);
 
     // Element inside which you want to see the chart.
     let element1 = document.querySelector('#gaugeArea1')
@@ -137,17 +159,17 @@
 	let options5 = {
 	    hasNeedle: true,
 	    needleColor: 'black',
-      arcColors: [],
-      arcDelimiters: [10, 60, 90],
+      arcColors: ['red', 'yellow', 'green'],
+      arcDelimiters: [60, 90],
       arcPadding: 6,
       arcPaddingColor: 'white',
       arcLabels: ['NO', 'Think again', 'Buy'],
       arcLabelFontSize: false,
       //arcOverEffect: false,
       // label options
-      rangeLabel: ['0', '350'],
-      centralLabel: '175',
-      rangeLabelFontSize: false,
+      rangeLabel: ['0', '100'],
+      centralLabel: financeScore,
+      rangeLabelFontSize: true,
       labelsFont: 'Consolas',
     }
     // Drawing and updating the chart.  
@@ -165,28 +187,28 @@
   
 	  GaugeChart
       .gaugeChart(element4, 400, options5)
-      .updateNeedle(30)
-        function edit(id) {
-            params = objToUrlStr(id)
-            window.open('edit.html?' + params)
-        }
-    function objToUrlStr(id) {
-      let options = {}
-      if (id === 1)
-        options = options1
-      else if (id === 2)
-        options = options2
-      else if (id === 3)
-        options = options3
-      else if (id === 4)
-        options = options4
-      // stringify Object and delete all spaces from it
-      return JSON.stringify(options).replace(/\s/g, '')
-    }
+      .updateNeedle(financeScore)
+    //     function edit(id) {
+    //         params = objToUrlStr(id)
+    //         window.open('edit.html?' + params)
+    //     }
+    // function objToUrlStr(id) {
+    //   let options = {}
+    //   if (id === 1)
+    //     options = options1
+    //   else if (id === 2)
+    //     options = options2
+    //   else if (id === 3)
+    //     options = options3
+    //   else if (id === 4)
+    //     options = options4
+    //   // stringify Object and delete all spaces from it
+    //   return JSON.stringify(options).replace(/\s/g, '')
+    // }
   </script>
 
-  <a href="https://github.com/recogizer">
+  {{-- <a href="https://github.com/recogizer">
     <img class="fork-me" alt="Fork me on GitHub" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
-  </a>
+  </a> --}}
 
 @endsection

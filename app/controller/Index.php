@@ -15,6 +15,7 @@ class Index extends Base
     public $id;
     private $tableGen;
     private $tableDec;
+    private $category;
 
     /**
      * Class constructor.
@@ -23,6 +24,7 @@ class Index extends Base
     {
         $this->tableDec = 'decide';
         $this->tableGen = 'general';
+        $this->category = 'category';
     }
 
     function home()
@@ -85,16 +87,36 @@ class Index extends Base
             $generalData = ['requirement' => $newData['requirement'], 'purpose' => $newData['purpose'], 'ip_address' => $ipAddress];
             $insert->insertData_NoRedirect($generalData, $this->tableGen);
 
+            // create categories
+            /** create arrays
+             * pick the id 
+             * insert the data to the table
+             */
+
             // INSERT TO THE DECIDE TABLE SECTION
 
             // remove the non numeric
-            unset($newData['requirement'], $newData['ip_address'], $newData['purpose']);
+            unset($newData['requirement'], $newData['ip_address'], $newData['purpose']);    
+
+            var_dump($newData);
+
+            // extract data/array for the category table
+
+            $finance = (int) $newData['affordability'] + (int) $newData['incomeSource'] + (int) $newData['concerns'] + $newData['otherOptions']; 
+
+            $purpose = (int) $newData['reward'] + (int) $newData['isNotRational'] + (int) $newData['needWant']; 
+
             // then loop through and add score to get the total score percentage
+
             foreach ($newData as $data) {
                 $totalScore += (int) $data;
+
             }
             // total as a percentage of 100
-            $totalInPercent = ($totalScore / $totalPossibleScore) * 100;
+            $totalInPercent = ($totalScore / (count($newData)*5)) * 100;
+            $financeInPercent = ($finance / (count($finance)*5)) * 100;
+            $purposeInPercent = ($purpose / (count($purpose)*5)) * 100;
+
             // create a new $_POST variable called total score
             $newData['totalScore'] = (int) $totalInPercent;
             // Get the last inserted data from the autoincrement Id
@@ -103,8 +125,11 @@ class Index extends Base
             $newData['decide_id'] = $lastInsertIdToGenTable[0]['id'];
             // create a session with the last inserted id
             $_SESSION['id'] =$lastInsertIdToGenTable[0]['id'];
+               // create a array for category table
+            $category = ['finance'=>$financeInPercent, 'purpose' => $purposeInPercent, 'decide_id'=>$lastInsertIdToGenTable[0]['id']];
             // Insert the data to the decide table
             $insert->insertData_NoRedirect($newData, $this->tableDec);
+            $insert->insertData_NoRedirect($category, $this->category);
             // commit all transactions
             $Transaction->commit();
             header('Location: /decision');
@@ -120,15 +145,17 @@ class Index extends Base
         $insert = new Insert;
         $tableId = 'decide_id';
 
-        // $outcome =$insert->select_from($this->tableDec, $tableId, 100);
-
-        // foreach($outcome as $row) {
-        //     echo $row[$tableId];
-        // }        
-       
         $pullData = $insert->select_join($this->tableGen, $this->tableDec, 'id', $tableId, $_SESSION['id']);
 
-        view('outcome/decision', compact('pullData'));
+        $categories = $insert->select_from($this->category, 'decide_id', $_SESSION['id']);
+
+        // echo $_SESSION['id'];
+
+        // var_dump($categories);
+
+        return view('outcome/decision', compact('pullData', 'categories'));
+
+        // return view('outcome/decision', array('categories'=>$pullCategory,'pullData'=>$pullData));
      
 
     }
