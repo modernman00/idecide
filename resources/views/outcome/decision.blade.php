@@ -32,23 +32,31 @@
 
 <div class="row">
 
+     {{-- THE DECISION GRAPH --}}
+
     <div class="col-sm-6">
 
-        <div style="width: 200px; height: 320px;"><div id="gaugeArea2"></div>
+        <div style="width: 200px; height: 320px;">
+
+          <div id="gaugeArea2"></div>
    
+        </div>
     </div>
-    </div>
+
+    {{-- {{ --ALGORITHMFORTHEMAINDECISION-- }} --}}
 
     <div class="col-sm-6" style="background-color: #D11206; color:white;";>
 
-      {{-- ALGORITHM FOR THE MAIN DECISION --}}
+  
 
         @if ($data['totalScore'] > 85)
-           <h3><i> Good News! Based strictly on the information you provided, iDecide believes that buying the  {{ $data['requirement'] }} is a good decision.</i> </h3>
+           <h3>
+             <i> Good News! Based strictly on the information you provided, iDecide believes that buying the  {{ $data['requirement'] }} is a good decision.</i> 
+           </h3>
 
         @elseif($data['totalScore'] > 65 && $data['totalScore'] < 85 )
             <h2>Please, have a rethink about buying the  {{ $data['requirement'] }}, and these are the areas we think you should consider</h2>
-            <ul>
+              <ul>
                 
                     @if($data['reward'] < 5) 
 
@@ -66,7 +74,7 @@
                     
                     @endif
               
-            </ul>
+              </ul>
         @else
             <li>Based on your response, we will advise you against making the purchase. Please see areas of concerns below: </li>
             
@@ -80,23 +88,31 @@
 
 <hr>
 
-{{-- <a href="http://recogizer.com/en">
-    <div class="header">
-      <img src="logo-recogizer.jpg" />
-      <div class="subheader">_open_source</div>
+{{-- GRAPH BREAKDOWN IN CATEGORY --}}
+  <div class="row">
+
+    <div class="col-sm-4">
+
+        <div id="gaugeArea4"></div>
+
     </div>
-  </a> --}}
-  <div class="gauge-row">
-    {{-- <div><div id="gaugeArea1"></div><div class="edit" onclick="edit(1)">edit</div></div> --}}
-    {{--  <div><div id="gaugeArea2"></div><div class="edit" onclick="edit(2)">edit</div></div>  --}}
-    {{-- <div><div id="gaugeArea3"></div><div class="edit" onclick="edit(3)">edit</div></div> --}}
-    <div>
-      <div id="gaugeArea4"></div>
-    
+
+    <div class="col-sm-4">
+
+      <div id="gaugeArea5"></div>
+
     </div>
+
+    <div class="col-sm-4">
+
+      <div id="gaugeArea6"></div>
+
+    </div>
+
+
+
   </div>
 
-  {{-- <footer>© 2018 RECOGIZER GROUP GmbH - All Rights Reserved.</footer> --}}
   <script src="https://unpkg.com/gauge-chart@0.5.1/dist/bundle.js"></script>
 
   <script>
@@ -107,9 +123,9 @@
     const purposeScore = parseInt(document.getElementById('purposeCat').value);
 
     // Element inside which you want to see the chart.
-    let element1 = document.querySelector('#gaugeArea1')
+    let element5 = document.querySelector('#gaugeArea5')
 	  let element2 = document.querySelector('#gaugeArea2')
-	  let element3 = document.querySelector('#gaugeArea3')
+	  let element6 = document.querySelector('#gaugeArea6')
     let element4 = document.querySelector('#gaugeArea4')
   
     let options1 = {
@@ -131,14 +147,14 @@
       needleStartValue: 0,
     }
   
-	let options3 = {
-	    hasNeedle: true,
-	    outerNeedle: true,
-	    needleColor: 'rgb(166, 206, 227)',
-        arcDelimiters: [],
-        rangeLabel: ['-10', '10'],
-	    centralLabel: '2',
-	    rangeLabelFontSize: 42,
+    let options3 = {
+        hasNeedle: true,
+        outerNeedle: true,
+        needleColor: 'rgb(166, 206, 227)',
+          arcDelimiters: [],
+          rangeLabel: ['-10', '10'],
+        centralLabel: '2',
+        rangeLabelFontSize: 42,
     }
     // let zebraArcDelimiters = []
     // let zebraArcColors = []
@@ -156,25 +172,25 @@
     //   arcColors: zebraArcColors,
     //   centralLabel: 'zebra',
     // }  
-	let options5 = {
-	    hasNeedle: true,
-	    needleColor: 'black',
-      arcColors: ['red', 'yellow', 'green'],
-      arcDelimiters: [60, 90],
-      arcPadding: 6,
-      arcPaddingColor: 'white',
-      arcLabels: ['NO', 'Think again', 'Buy'],
-      arcLabelFontSize: false,
-      //arcOverEffect: false,
-      // label options
-      rangeLabel: ['0', '100'],
-      centralLabel: financeScore,
-      rangeLabelFontSize: true,
-      labelsFont: 'Consolas',
+    let options5 = {
+        hasNeedle: true,
+        needleColor: 'black',
+        arcColors: ['red', 'yellow', 'green'],
+        arcDelimiters: [60, 90],
+        arcPadding: 6,
+        arcPaddingColor: 'white',
+        arcLabels: ['NO', 'Think again', 'Buy'],
+        arcLabelFontSize: false,
+        //arcOverEffect: false,
+        // label options
+        rangeLabel: ['0', '100'],
+        centralLabel: financeScore,
+        rangeLabelFontSize: true,
+        labelsFont: 'Consolas',
     }
     // Drawing and updating the chart.  
     GaugeChart
-      .gaugeChart(element1, 400, options1)
+      .gaugeChart(element5, 400, options1)
       .updateNeedle(70)
   
 	  GaugeChart
@@ -182,33 +198,13 @@
       .updateNeedle(totalScore)
   
 	  GaugeChart
-      .gaugeChart(element3, 400, options3)
+      .gaugeChart(element6, 400, options3)
       .updateNeedle(60)
   
 	  GaugeChart
       .gaugeChart(element4, 400, options5)
       .updateNeedle(financeScore)
-    //     function edit(id) {
-    //         params = objToUrlStr(id)
-    //         window.open('edit.html?' + params)
-    //     }
-    // function objToUrlStr(id) {
-    //   let options = {}
-    //   if (id === 1)
-    //     options = options1
-    //   else if (id === 2)
-    //     options = options2
-    //   else if (id === 3)
-    //     options = options3
-    //   else if (id === 4)
-    //     options = options4
-    //   // stringify Object and delete all spaces from it
-    //   return JSON.stringify(options).replace(/\s/g, '')
-    // }
+   
   </script>
-
-  {{-- <a href="https://github.com/recogizer">
-    <img class="fork-me" alt="Fork me on GitHub" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
-  </a> --}}
 
 @endsection
