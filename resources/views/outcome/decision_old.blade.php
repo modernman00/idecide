@@ -18,11 +18,15 @@
 
 <div class="row">
 
+    {{-- MAIN GRAPH PAGE --}}
+
     <div class="col-sm-6">
 
         <div id="chart_div" style="width: 400px; height: 520px;">
         </div>
     </div>
+{{-- 
+    COMMENTARY --}}
 
     <div class="col-sm-6">
 

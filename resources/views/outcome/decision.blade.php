@@ -38,7 +38,7 @@
 
         <div style="width: 200px; height: 320px;">
 
-          <div id="gaugeArea2"></div>
+          <div id="main"></div>
    
         </div>
     </div>
@@ -91,20 +91,24 @@
 {{-- GRAPH BREAKDOWN IN CATEGORY --}}
   <div class="row">
 
+    {{-- FINANCE --}}
+
     <div class="col-sm-4">
+
+      <h3 class="catTitle"> Financial Position</h3>
 
         <div id="gaugeArea4"></div>
 
     </div>
 
     <div class="col-sm-4">
-
+      <h3 class="catTitle"> Purpose</h3>
       <div id="gaugeArea5"></div>
 
     </div>
 
     <div class="col-sm-4">
-
+      <h3 class="catTitle"> Concern</h3>
       <div id="gaugeArea6"></div>
 
     </div>
@@ -113,98 +117,5 @@
 
   </div>
 
-  <script src="https://unpkg.com/gauge-chart@0.5.1/dist/bundle.js"></script>
-
-  <script>
-    const totalScore = parseInt(document.getElementById('totalScore').value);
-
-    const financeScore = parseInt(document.getElementById('financeCat').value);
-
-    const purposeScore = parseInt(document.getElementById('purposeCat').value);
-
-    // Element inside which you want to see the chart.
-    let element5 = document.querySelector('#gaugeArea5')
-	  let element2 = document.querySelector('#gaugeArea2')
-	  let element6 = document.querySelector('#gaugeArea6')
-    let element4 = document.querySelector('#gaugeArea4')
-  
-    let options1 = {
-      arcColors: ['rgb(44, 151, 222)', 'lightgray'],
-      arcDelimiters: [80],
-      rangeLabel: ['0%', '100%'],
-      centralLabel: '70%',
-    }
-  
-    let options2 = {
-      hasNeedle: true,
-	    needleColor: 'black',
-      arcColors: ['rgb(255, 84, 84)', 'rgb(239, 214, 19)', 'rgb(61, 204, 91)'],
-      arcDelimiters: [50, 85, 99.99],
-      arcLabels: ["DON'T BUY", 'RECONSIDER', 'BUY'],
-      arcPadding: 6,
-      arcPaddingColor: 'white',
-      rangeLabel: ['0', '100'],
-      needleStartValue: 0,
-    }
-  
-    let options3 = {
-        hasNeedle: true,
-        outerNeedle: true,
-        needleColor: 'rgb(166, 206, 227)',
-          arcDelimiters: [],
-          rangeLabel: ['-10', '10'],
-        centralLabel: '2',
-        rangeLabelFontSize: 42,
-    }
-    // let zebraArcDelimiters = []
-    // let zebraArcColors = []
-    // zebraArcColors.push('black')
-    // for (let i = 2; i < 100; i = i + 2) {
-    //   zebraArcDelimiters.push(i)
-    //   i % 4 ? zebraArcColors.push('white') : zebraArcColors.push('black')
-    // }
-    // zebraArcColors.push('black')
-  
-	  // let options4 = {
-	  //   hasNeedle: true,
-	  //   needleColor: 'black',
-    //   arcDelimiters: zebraArcDelimiters,
-    //   arcColors: zebraArcColors,
-    //   centralLabel: 'zebra',
-    // }  
-    let options5 = {
-        hasNeedle: true,
-        needleColor: 'black',
-        arcColors: ['red', 'yellow', 'green'],
-        arcDelimiters: [60, 90],
-        arcPadding: 6,
-        arcPaddingColor: 'white',
-        arcLabels: ['NO', 'Think again', 'Buy'],
-        arcLabelFontSize: false,
-        //arcOverEffect: false,
-        // label options
-        rangeLabel: ['0', '100'],
-        centralLabel: financeScore,
-        rangeLabelFontSize: true,
-        labelsFont: 'Consolas',
-    }
-    // Drawing and updating the chart.  
-    GaugeChart
-      .gaugeChart(element5, 400, options1)
-      .updateNeedle(70)
-  
-	  GaugeChart
-      .gaugeChart(element2, 400, options2)
-      .updateNeedle(totalScore)
-  
-	  GaugeChart
-      .gaugeChart(element6, 400, options3)
-      .updateNeedle(60)
-  
-	  GaugeChart
-      .gaugeChart(element4, 400, options5)
-      .updateNeedle(financeScore)
-   
-  </script>
 
 @endsection

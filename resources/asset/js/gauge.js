@@ -1,54 +1,85 @@
-// Require JS
-var Gauge1 = require("svg-gauge");
+const totalScore = parseInt(document.getElementById('totalScore').value);
 
-var Gauge = window.Gauge1;
+const financeScore = parseInt(document.getElementById('financeCat').value);
 
-// Create a new Gauge
-var cpuGauge = Gauge(document.getElementById("cpuSpeed"), {
-    max: 100,
-    // custom label renderer
-    label: function(value) {
-      return Math.round(value) + "/" + this.max;
-    },
-    min: 0,
+const purposeScore = parseInt(document.getElementById('purposeCat').value);
+
+const purpose = "";
+
+if(purposeScore > 80) {
+  purpose = "Impactful";
+} else{
+  purpose = "Just another item";
+}
+
+// Element inside which you want to see the chart.
+let element5 = document.querySelector('#gaugeArea5')
+let theMain = document.querySelector('#main')
+let element6 = document.querySelector('#gaugeArea6')
+let element4 = document.querySelector('#gaugeArea4')
+
+let options1 = {
+  arcColors: ['rgb(44, 151, 222)', 'lightgray'],
+  arcDelimiters: [80],
+  rangeLabel: ['0%', '100%'],
+  centralLabel: '70%',
+}
+
+let main = {
+  hasNeedle: true,
+  needleColor: 'black',
+  arcColors: ['rgb(255, 84, 84)', 'rgb(239, 214, 19)', 'rgb(61, 204, 91)'],
+  arcDelimiters: [50, 85, 99.99],
+  arcLabels: ["Don't buy", 'Think', 'Buy'],
+  arcPadding: 6,
+  arcPaddingColor: 'white',
+  rangeLabel: ['0', '100'],
+  needleStartValue: 0,
+}
+
+let options3 = {
+    hasNeedle: true,
+    outerNeedle: true,
+    needleColor: 'rgb(166, 206, 227)',
+      arcDelimiters: [20, 40, 60],
+      rangeLabel: ['-10', '10'],
+    centralLabel: '2',
+    rangeLabelFontSize: 42,
+}
+
  
-    dialStartAngle: 180,
-    dialEndAngle: 0,
-    value: 50,
+let finance = {
+    hasNeedle: true,
+    needleColor: 'black',
+    arcColors: ['red', 'yellow', 'green'],
+    arcDelimiters: [60, 90],
+    arcPadding: 6,
+    arcPaddingColor: 'white',
+    arcLabels: ['Struggling?', 'Just ok', 'Strong'],
+    arcLabelFontSize: false,
+    //arcOverEffect: false,
+    // label options
+    rangeLabel: ['0', '100'],
+    centralLabel: financeScore,
+    rangeLabelFontSize: true,
+    labelsFont: 'Consolas',
 
-    // Custom dial colors (Optional)
-    color: function(value) {
-      if(value < 20) {
-        return "#5ee432"; // green
-      }else if(value < 40) {
-        return "#fffa50"; // yellow
-      }else if(value < 60) {
-        return "#f7aa38"; // orange
-      }else {
-        return "#ef4655"; // red
-      }
-    }
-});
+}
+// Drawing and updating the chart.  
 
-// Set gauge value
-cpuGauge.setValue(75);
+GaugeChart
+  .gaugeChart(theMain, 400, main)
+  .updateNeedle(totalScore)
 
-// Set value and animate (value, animation duration in seconds)
-cpuGauge.setValueAnimated(90, 1);
+GaugeChart
+  .gaugeChart(element5, 400, options1)
+  .updateNeedle(70)
 
-var gauge3 = Gauge(
-    document.getElementById("gauge3"), {
-      max: 100,
-      value: 50
-    }
-  );
-  
-  var gauge4 = Gauge(
-    document.getElementById("gauge4"), {
-      max: 30000,
-      dialStartAngle: 90,
-      dialEndAngle: 0,
-      value: 50
-    }
-  );
-  
+GaugeChart
+  .gaugeChart(element6, 400, options3)
+  .updateNeedle(60)
+
+GaugeChart
+  .gaugeChart(element4, 400, finance)
+  .updateNeedle(financeScore)
+

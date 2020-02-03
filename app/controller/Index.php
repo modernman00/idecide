@@ -129,6 +129,7 @@ class Index extends Base
             $category = ['finance'=>$financeInPercent, 'purpose' => $purposeInPercent, 'decide_id'=>$lastInsertIdToGenTable[0]['id']];
             // Insert the data to the decide table
             $insert->insertData_NoRedirect($newData, $this->tableDec);
+              // Insert the data to the category table
             $insert->insertData_NoRedirect($category, $this->category);
             // commit all transactions
             $Transaction->commit();
@@ -149,9 +150,9 @@ class Index extends Base
 
         $categories = $insert->select_from($this->category, 'decide_id', $_SESSION['id']);
 
-        // echo $_SESSION['id'];
+        echo $_SESSION['id'];
 
-        // var_dump($categories);
+        var_dump($categories);
 
         return view('outcome/decision', compact('pullData', 'categories'));
 
