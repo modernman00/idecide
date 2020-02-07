@@ -202,6 +202,7 @@ class BuildFormBulma extends AlterTable
                         <p class='help' id={$nameKey}1></p>
                         </div>
                         </div>";
+                        
             } elseif ($this->EntValue[$i] === 'password') {
                 echo "   <div class='field'>
                     <label class='label'  id=$nameKey><b> $var</b></label>  

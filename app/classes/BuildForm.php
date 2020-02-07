@@ -49,8 +49,9 @@ class BuildForm extends AlterTable
     }
     /**
      * function to build the form although it is not modular
+     * TASK - is to make the row dynamic - for example - col-sm-4 depending on how many row you want
      */
-    public function genForm()
+    public function genForm($rowNumber)
     {
         // set the array key
         $this->setEntValue();
@@ -60,88 +61,125 @@ class BuildForm extends AlterTable
         //ITERATE TO CREATE A FORM
         for ($i = 0; $i < $this->EntCount; $i++) {
             $value = "";
-
             if (isset($_POST['submit'])) {
                 $value = $_POST[$this->EntKey[$i]];
             }
-
             // The questions, remove the underscore and change to uppercase
-
             $var = strtoupper(preg_replace('/[^0-9A-Za-z@.]/', ' ', $this->EntKey[$i]));
-
             $nameKey = $this->EntKey[$i];
-
             // CREATE THE FORM - NUMBER AND STRING
-            if ($this->EntValue[$i] === 's') {
+            if ($this->EntValue[$i] === 'string') {
                
-                echo " <div class = col-sm-6>
-            <div class= form-group>
-            <label for='staticEmail' id=$nameKey><b> $var</b></label>
-                    
-            <input type='text' class = 'form-control' required name= $nameKey value=$value>
-            <p id={$nameKey}1></p>
-            </div></div>";
+                    echo " <div class = $rowNumber>
+                <div class= form-group>
+                <label for='staticEmail' id=$nameKey><b> $var</b></label>
+                        
+                <input type='text' class = 'form-control' required name= $nameKey value=$value>
+                <p id={$nameKey}1></p>
+                </div></div>";
             //integer
-            } elseif ($this->EntValue[$i] === 'i') {
-                echo " <div class = col-sm-6>
-             <div class= form-group>
-            <label for='staticEmail' id=$nameKey><b> $var</b></label> 
+            } elseif ($this->EntValue[$i] === 'integer') {
+                echo " <div class = $rowNumber>
+                <div class= form-group>
+                <label for='staticEmail' id=$nameKey><b> $var</b></label> 
 
-             <input type='number' class = 'form-control' name= $nameKey value=$value>
-             <p id={$nameKey}1></p>
-             </div></div> ";
+                <input type='number' class = 'form-control' name= $nameKey value=$value>
+                <p id={$nameKey}1></p>
+                </div></div> ";
              //select
             } elseif ($this->EntValue[$i][0] == 'select') {
-                echo " <div class = col-sm-6>
-             <div class= form-group> 
-             <label for='staticEmail' id=$nameKey><b> $var</b></label>
+                echo " <div class = $rowNumber>
+                <div class= form-group> 
+                <label for='staticEmail' id=$nameKey><b> $var</b></label>
 
-             <select class='form-control' id='exampleFormControlSelect1' name=$nameKey>";
+                <select class='form-control' id='exampleFormControlSelect1' name=$nameKey>";
 
-                for ($y = 0; $y < count($this->EntValue[$i]); $y++) {
-                    echo "<option>" . $this->EntValue[$i][$y] . "</option>";
-                }
-                echo " </select>
-                <p id={$nameKey}1></p>
-            </div></div> ";
+                    for ($y = 0; $y < count($this->EntValue[$i]); $y++) {
+                        echo "<option>" . $this->EntValue[$i][$y] . "</option>";
+                    }
+                    echo " </select>
+                    <p id={$nameKey}1></p>
+                </div></div> ";
             //date
             } elseif ($this->EntValue[$i] === 'date') {
-                echo " <div class = col-sm-6>
-             <div class= form-group>
-            <label for='staticEmail'  id=$nameKey><b> $var</b></label>  
+                echo " <div class = $rowNumber>
+                <div class= form-group>
+                <label for='staticEmail'  id=$nameKey><b> $var</b></label>  
 
-             <input type='date' class ='form-control' name= $nameKey value=$value>
-             <p id={$nameKey}1></p>
-             </div></div> ";
+                <input type='date' class ='form-control' name= $nameKey value=$value>
+                <p id={$nameKey}1></p>
+                </div></div> ";
              //textera
             } elseif ($this->EntValue[$i] === 'textera') {
-                echo " <div class = col-sm-6>
-             <div class= form-group>
-            <label for='staticEmail'  id=$nameKey><b> $var</b></label>  
+                echo " <div class = $rowNumber>
+                <div class= form-group>
+                <label for='staticEmail'  id=$nameKey><b> $var</b></label>  
 
-            <textarea class='form-control' name= $nameKey id='exampleFormControlTextarea1' class='form-group' rows='3'></textarea>
-            <p id={$nameKey}1></p>
-            </div></div> ";
-            // email
+                <textarea class='form-control' name= $nameKey id='exampleFormControlTextarea1' class='form-group' rows='3'></textarea>
+                <p id={$nameKey}1></p>
+                </div></div> ";
+                // email
             } elseif ($this->EntValue[$i] === 'email') {
-                echo " <div class = col-sm-6>
-             <div class= form-group>
-            <label for='staticEmail'  id=$nameKey><b> $var</b></label>  
+                echo " <div class = $rowNumber>
+                <div class= form-group>
+                <label for='staticEmail'  id=$nameKey><b> $var</b></label>  
 
-             <input type='email' id='$nameKey' class ='form-control' name= $nameKey value=$value>
-          
-             </div></div> ";
+                <input type='email' id='$nameKey' class ='form-control' name= $nameKey value=$value>
+            
+                </div></div> ";
+            } elseif ($this->EntValue[$i] === 'password') {
+                echo " <div class = $rowNumber>
+                <div class= form-group>
+                <label for='staticEmail'  id=$nameKey><b> $var</b></label>  
+
+                <input type='password' id='password' class ='form-control' name= $nameKey value=$value>
+                <p id={$nameKey}1></p>
+                </div></div> ";
+            } elseif ($this->EntValue[$i][0] === 'card') {
+                   echo   " <div class='col-sm-4'>
+                    <div class='card mb-3' style='max-width: 540px;'>
+                        <div class='row no-gutters'>
+                            <div class='col-md-4'>
+                                <img src= ".$this->EntValue[$i][2]." class='card-img'  alt=$nameKey pic format not acceptable>
+                            </div>
+                            <div class='col-md-8'>
+                                <div class='card-body'>
+                                    <h5 class='card-title'>$nameKey</h5>
+                                    <p class='card-text'>" .$this->EntValue[$i][1]."</p>
+                                    <input class='form-control' type='text' placeholder='$nameKey' name='$nameKey' id='$nameKey'>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> ";
+
+            } elseif ($this->EntValue[$i][0] === 'cardSelect') {
+                   echo   " <div class='col-sm-4'>
+                    <div class='card mb-3' style='max-width: 540px;'>
+                        <div class='row no-gutters'>
+                            <div class='col-md-4'>
+                                <img src= ".$this->EntValue[$i][2]." class='card-img'  alt=$nameKey pic format not acceptable>
+                            </div>
+                            <div class='col-md-8'>
+                                <div class='card-body'>
+                                    <h5 class='card-title'>$nameKey</h5>
+                                    <p class='card-text'>" .$this->EntValue[$i][1]."</p>
+                                        <div class='select'>
+                                        <select name=$nameKey>
+                                        <option>Select dropdown</option>
+                                        <option value= 4>" . $this->EntValue[$i][3] . "</option>
+                                        <option value= 3>" . $this->EntValue[$i][4] . "</option>
+                                        <option value= 2>" . $this->EntValue[$i][5] . "</option>
+                                    </select>
+                              
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> ";
+
+            }
         }
-        elseif ($this->EntValue[$i] === 'password') {
-            echo " <div class = col-sm-6>
-         <div class= form-group>
-        <label for='staticEmail'  id=$nameKey><b> $var</b></label>  
-
-         <input type='password' id='password' class ='form-control' name= $nameKey value=$value>
-         <p id={$nameKey}1></p>
-         </div></div> ";
-    }
-    }
         
     }
 

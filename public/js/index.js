@@ -10807,14 +10807,18 @@ function drawChart() {
 /*!*************************************!*\
   !*** ./resources/asset/js/index.js ***!
   \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-window.$ = window.JQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _gauge_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gauge.js */ "./resources/asset/js/gauge.js");
+/* harmony import */ var _gauge_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_gauge_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _googleGauge_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./googleGauge.js */ "./resources/asset/js/googleGauge.js");
+/* harmony import */ var _googleGauge_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_googleGauge_js__WEBPACK_IMPORTED_MODULE_1__);
+window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
-__webpack_require__(/*! ./gauge.js */ "./resources/asset/js/gauge.js");
 
-__webpack_require__(/*! ./googleGauge.js */ "./resources/asset/js/googleGauge.js");
 
 /***/ }),
 
@@ -10836,8 +10840,8 @@ __webpack_require__(/*! ./googleGauge.js */ "./resources/asset/js/googleGauge.js
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\idecide\resources\asset\js\index.js */"./resources/asset/js/index.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\idecide\resources\asset\sass\main.scss */"./resources/asset/sass/main.scss");
+__webpack_require__(/*! /Applications/MAMP/htdocs/idecide/resources/asset/js/index.js */"./resources/asset/js/index.js");
+module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/idecide/resources/asset/sass/main.scss */"./resources/asset/sass/main.scss");
 
 
 /***/ })

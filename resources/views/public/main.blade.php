@@ -9,12 +9,37 @@
 
     <div class="notification"></div>
 
+
+    <?php
+
+    $formArray = [
+                        'email' => 'email',
+                        'string' => 'email',
+                        'password' => 'password',
+                        'status' => ['select',  'Tenant', 'Landlord', 'Agency'],
+                        'checkbox' => 'checkbox',
+                        'token' => 'token',
+                        'button' => 'button',
+                        'Purpose' => ['card', 'Testing', '/img/dad.jpg'],
+                         'Finance' => ['card', 'Finance', '/img/dad.jpg'],
+                          'Purchase' => ['cardSelect', 'Purchase','/img/dad.jpg', 'yes', 'No', 'Not sure']
+                    ];
+                    $form = new App\classes\BuildForm($formArray);
+                    echo "<div class='row'>";
+                    $form->genForm('col-sm-4');
+                    echo "</div>";
+
+
+
+
+    ?>
+
     <div class="row">
         <div class="col-sm-4">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row no-gutters">
                     <div class="col-md-4">
-                        <img src="/img/dad.jpg" class="card-img" alt="...">
+                        <img src="/img/dad.jpg" class="card-img" height="50" width="50" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
