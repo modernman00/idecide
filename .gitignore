@@ -335,3 +335,4 @@ vendor/
 bootstrap/cache
 .gitignore
 composer.json
+.history

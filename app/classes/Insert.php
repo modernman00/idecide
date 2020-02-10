@@ -359,7 +359,6 @@ class Insert extends Db
 			foreach ($data as $key => $value) {
 				$stmt->bindValue(':' . $key, $value);
 			}
-			// return $stmt->execute();
 			return $stmt->execute();
 		} catch (PDOException $e) {
 			echo $e->getMessage(), PHP_EOL;

@@ -92,10 +92,10 @@ class BuildForm extends AlterTable
                 <div class= form-group> 
                 <label for='staticEmail' id=$nameKey><b> $var</b></label>
 
-                <select class='form-control' id='exampleFormControlSelect1' name=$nameKey>";
+                <select class='form-control' id=$nameKey name=$nameKey>";
 
-                    for ($y = 0; $y < count($this->EntValue[$i]); $y++) {
-                        echo "<option>" . $this->EntValue[$i][$y] . "</option>";
+                    for ($y = 0; $y < count($this->EntValue[$i]['options']); $y++) {
+                        echo "<option value =". $this->EntValue[$i]['value'][$y]. ">" . $this->EntValue[$i]['options'][$y] . "</option>";
                     }
                     echo " </select>
                     <p id={$nameKey}1></p>
@@ -109,8 +109,8 @@ class BuildForm extends AlterTable
                 <input type='date' class ='form-control' name= $nameKey value=$value>
                 <p id={$nameKey}1></p>
                 </div></div> ";
-             //textera
-            } elseif ($this->EntValue[$i] === 'textera') {
+             //textarea
+            } elseif ($this->EntValue[$i] === 'textarea') {
                 echo " <div class = $rowNumber>
                 <div class= form-group>
                 <label for='staticEmail'  id=$nameKey><b> $var</b></label>  
@@ -127,6 +127,7 @@ class BuildForm extends AlterTable
                 <input type='email' id='$nameKey' class ='form-control' name= $nameKey value=$value>
             
                 </div></div> ";
+                // password
             } elseif ($this->EntValue[$i] === 'password') {
                 echo " <div class = $rowNumber>
                 <div class= form-group>
@@ -135,45 +136,73 @@ class BuildForm extends AlterTable
                 <input type='password' id='password' class ='form-control' name= $nameKey value=$value>
                 <p id={$nameKey}1></p>
                 </div></div> ";
+                /*   'Finance' => ['card', 
+                'cardText' => 'How do you intend to source the money to buy this item.', 
+                'cardImg'=>'/img/dad.jpg'
+                ],
+                */
             } elseif ($this->EntValue[$i][0] === 'card') {
-                   echo   " <div class='col-sm-4'>
-                    <div class='card mb-3' style='max-width: 540px;'>
+                echo   " <div class='$rowNumber'>
+                    <div class='card mb-3' style='max-width: 400px; min-height: 255px;'>
                         <div class='row no-gutters'>
-                            <div class='col-md-4'>
-                                <img src= ".$this->EntValue[$i][2]." class='card-img'  alt=$nameKey pic format not acceptable>
+                            <div class='col-md-3'>
+                                <img src= ".$this->EntValue[$i]['cardImg']." class='card-img img-fluid rounded-circle ml-1 mt-1'  alt=$nameKey pic format not acceptable>
                             </div>
                             <div class='col-md-8'>
                                 <div class='card-body'>
-                                    <h5 class='card-title'>$nameKey</h5>
-                                    <p class='card-text'>" .$this->EntValue[$i][1]."</p>
-                                    <input class='form-control' type='text' placeholder='$nameKey' name='$nameKey' id='$nameKey'>
+                                    <h5 class='card-title text-info text-uppercase'>$nameKey</h5>
+                                    <p class='card-text font-italic'>" .$this->EntValue[$i]['cardText']."</p>
+                                   
                                 </div>
                             </div>
                         </div>
+
+                        <div class = row>
+
+                            <div class = col-sm-10>
+
+                                <input class='form-control m-2' type='text' placeholder='$nameKey' name='$nameKey' id='$nameKey'>
+                            
+                            </div>
+                        
+                        </div>
+
                     </div>
                 </div> ";
+                /*
+                'Purchase' => ['cardSelect', 
+                            'cardText' => 'How do you intend to source the money to buy this item.',
+                            'cardImg'=>'/img/dad.jpg', 
+                            'cardOptions' => ['yes', 'No', 'Not sure'],
+                            'cardValue' => [5, 4, 3, 1]
+                        ]
 
+                */
             } elseif ($this->EntValue[$i][0] === 'cardSelect') {
-                   echo   " <div class='col-sm-4'>
-                    <div class='card mb-3' style='max-width: 540px;'>
+                echo   " <div class='$rowNumber'>
+                    <div class='card mb-3' style='max-width: 400px; min-height: 255px;'>
                         <div class='row no-gutters'>
-                            <div class='col-md-4'>
-                                <img src= ".$this->EntValue[$i][2]." class='card-img'  alt=$nameKey pic format not acceptable>
+                            <div class='col-md-3'>
+                                <img src= ".$this->EntValue[$i]['cardImg']." class='card-img rounded-circle ml-1 mt-1 img-fluid' id=$nameKey-Image-Id  alt=$nameKey pic format not acceptable>
                             </div>
-                            <div class='col-md-8'>
+                            <div class='col-md-9'>
                                 <div class='card-body'>
-                                    <h5 class='card-title'>$nameKey</h5>
-                                    <p class='card-text'>" .$this->EntValue[$i][1]."</p>
-                                        <div class='select'>
-                                        <select name=$nameKey>
-                                        <option>Select dropdown</option>
-                                        <option value= 4>" . $this->EntValue[$i][3] . "</option>
-                                        <option value= 3>" . $this->EntValue[$i][4] . "</option>
-                                        <option value= 2>" . $this->EntValue[$i][5] . "</option>
-                                    </select>
-                              
+                                    <h5 class='card-title text-uppercase text-info'>$nameKey</h5>
+                                    <p class='card-text font-italic'>" .$this->EntValue[$i]['cardText']."</p>
                                 </div>
                             </div>
+                        </div>
+                        <div class='row no-gutters'>
+                                    <div class = col-sm-12>
+                                        <div class='col-sm-9 select w-100 m-2 mb-2'  >
+                                            <select name=$nameKey id=$nameKey-Select-Id >
+                                                <option><span class='text-muted'>Select dropdown</span></option>";
+                                                for ($y = 0; $y < count($this->EntValue[$i]['cardOptions']); $y++) {
+                                                    echo "<option class ='p-3 bg-success w-100 text-white' value =". $this->EntValue[$i]['cardValue'][$y] .">" . $this->EntValue[$i]['cardOptions'][$y] . "</option>";
+                                                }
+                                            echo " </select>
+                                        </div>
+                                    </div>                         
                         </div>
                     </div>
                 </div> ";

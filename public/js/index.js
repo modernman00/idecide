@@ -10703,37 +10703,29 @@ return jQuery;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-function _readOnlyError(name) { throw new Error("\"" + name + "\" is read-only"); }
-
 var totalScore = parseInt(document.getElementById('totalScore').value);
 var financeScore = parseInt(document.getElementById('financeCat').value);
 var purposeScore = parseInt(document.getElementById('purposeCat').value);
-var purpose = "";
+var purpose = purposeScore > 80 ? "Impactful" : "Just another item"; // Element inside which you want to see the chart.
 
-if (purposeScore > 80) {
-  purpose = (_readOnlyError("purpose"), "Impactful");
-} else {
-  purpose = (_readOnlyError("purpose"), "Just another item");
-} // Element inside which you want to see the chart.
-
-
-var element5 = document.querySelector('#gaugeArea5');
+var element5 = document.querySelector('#purposeChart');
 var theMain = document.querySelector('#main');
-var element6 = document.querySelector('#gaugeArea6');
-var element4 = document.querySelector('#gaugeArea4');
-var options1 = {
+var element6 = document.querySelector('#concernChart');
+var element4 = document.querySelector('#financeChart');
+var purposeData = {
   arcColors: ['rgb(44, 151, 222)', 'lightgray'],
   arcDelimiters: [80],
   rangeLabel: ['0%', '100%'],
-  centralLabel: '70%'
+  centralLabel: purposeScore
 };
 var main = {
   hasNeedle: true,
-  needleColor: 'black',
-  arcColors: ['rgb(255, 84, 84)', 'rgb(239, 214, 19)', 'rgb(61, 204, 91)'],
-  arcDelimiters: [50, 85, 99.99],
-  arcLabels: ["Don't buy", 'Think', 'Buy'],
-  arcPadding: 6,
+  needleColor: 'blue',
+  arcColors: ['rgb(245, 7, 7)', 'rgb(255, 242, 3)', 'rgb(26, 143, 20)'],
+  arcDelimiters: [65, 85, 99.99],
+  arcLabelFontSize: 10,
+  arcLabels: ["Don't buy", 'Think Again', 'Buy'],
+  arcPadding: 3,
   arcPaddingColor: 'white',
   rangeLabel: ['0', '100'],
   needleStartValue: 0
@@ -10752,20 +10744,20 @@ var finance = {
   needleColor: 'black',
   arcColors: ['red', 'yellow', 'green'],
   arcDelimiters: [60, 90],
-  arcPadding: 6,
+  arcPadding: 3,
   arcPaddingColor: 'white',
   arcLabels: ['Struggling?', 'Just ok', 'Strong'],
-  arcLabelFontSize: false,
+  arcLabelFontSize: 10,
   //arcOverEffect: false,
   // label options
   rangeLabel: ['0', '100'],
-  centralLabel: financeScore,
+  // centralLabel: financeScore,
   rangeLabelFontSize: true,
   labelsFont: 'Consolas'
 }; // Drawing and updating the chart.  
 
 GaugeChart.gaugeChart(theMain, 400, main).updateNeedle(totalScore);
-GaugeChart.gaugeChart(element5, 400, options1).updateNeedle(70);
+GaugeChart.gaugeChart(element5, 400, purposeData).updateNeedle(purposeScore);
 GaugeChart.gaugeChart(element6, 400, options3).updateNeedle(60);
 GaugeChart.gaugeChart(element4, 400, finance).updateNeedle(financeScore);
 
@@ -10840,8 +10832,8 @@ window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Applications/MAMP/htdocs/idecide/resources/asset/js/index.js */"./resources/asset/js/index.js");
-module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/idecide/resources/asset/sass/main.scss */"./resources/asset/sass/main.scss");
+__webpack_require__(/*! C:\xampp\htdocs\idecide\resources\asset\js\index.js */"./resources/asset/js/index.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\idecide\resources\asset\sass\main.scss */"./resources/asset/sass/main.scss");
 
 
 /***/ })

@@ -51,7 +51,6 @@ class Index extends Base
         return view('public/main');
     }
 
-
     function decidepics()
     {
 
@@ -76,7 +75,7 @@ class Index extends Base
             //clean up the the $_POST data
             $clean = new Clean($_POST);
             $newData = $clean->getSanitisedArray();
-
+           // var_dump($newData);
             $insert = new Insert;
             $Transaction = new Transaction;
             //begin transaction
@@ -84,39 +83,28 @@ class Index extends Base
             // get user's ip address
             $ipAddress = getUserIpAddr();
             // Insert the first data
-            $generalData = ['requirement' => $newData['requirement'], 'purpose' => $newData['purpose'], 'ip_address' => $ipAddress];
+            $generalData = ['purchase' => $newData['purchase'], 'purpose' => $newData['purpose'], 'ip_address' => $ipAddress];
             $insert->insertData_NoRedirect($generalData, $this->tableGen);
-
             // create categories
-            /** create arrays
+            /* create arrays
              * pick the id 
              * insert the data to the table
              */
-
             // INSERT TO THE DECIDE TABLE SECTION
-
             // remove the non numeric
-            unset($newData['requirement'], $newData['ip_address'], $newData['purpose']);    
-
-            var_dump($newData);
-
+            unset($newData['purchase'], $newData['ip_address'], $newData['purpose']);
+           //var_dump($newData);
             // extract data/array for the category table
-
-            $finance = (int) $newData['affordability'] + (int) $newData['incomeSource'] + (int) $newData['concerns'] + $newData['otherOptions']; 
-
-            $purpose = (int) $newData['reward'] + (int) $newData['isNotRational'] + (int) $newData['needWant']; 
-
+            $finance = (int) $newData['affordability'] + (int) $newData['finance'] + (int) $newData['concerns'] + $newData['options']; 
+            $purpose = (int) $newData['reward'] + (int) $newData['value'] + (int) $newData['necessity']; 
             // then loop through and add score to get the total score percentage
-
             foreach ($newData as $data) {
                 $totalScore += (int) $data;
-
             }
             // total as a percentage of 100
-            $totalInPercent = ($totalScore / (count($newData)*5)) * 100;
-            $financeInPercent = ($finance / (count($finance)*5)) * 100;
-            $purposeInPercent = ($purpose / (count($purpose)*5)) * 100;
-
+            $totalInPercent = ($totalScore / (count($newData)*5) * 100);
+            $financeInPercent = ($finance / (count($finance)*5) * 100);
+            $purposeInPercent = ($purpose / (count($purpose)*5) * 100);
             // create a new $_POST variable called total score
             $newData['totalScore'] = (int) $totalInPercent;
             // Get the last inserted data from the autoincrement Id
@@ -126,11 +114,14 @@ class Index extends Base
             // create a session with the last inserted id
             $_SESSION['id'] =$lastInsertIdToGenTable[0]['id'];
                // create a array for category table
-            $category = ['finance'=>$financeInPercent, 'purpose' => $purposeInPercent, 'decide_id'=>$lastInsertIdToGenTable[0]['id']];
-            // Insert the data to the decide table
-            $insert->insertData_NoRedirect($newData, $this->tableDec);
+            $category = ['finance'=>$financeInPercent, 'purpose'=>$purposeInPercent, 'decide_id'=>$_SESSION['id']];
+            var_dump($category);
+            var_dump($newData);
+            echo $_SESSION['id'];
               // Insert the data to the category table
             $insert->insertData_NoRedirect($category, $this->category);
+            // Insert the data to the decide table
+            $insert->insertData_NoRedirect($newData, $this->tableDec);
             // commit all transactions
             $Transaction->commit();
             header('Location: /decision');
@@ -140,24 +131,17 @@ class Index extends Base
         }
     }
 
-
     public function decision()
     {
         $insert = new Insert;
         $tableId = 'decide_id';
-
         $pullData = $insert->select_join($this->tableGen, $this->tableDec, 'id', $tableId, $_SESSION['id']);
-
         $categories = $insert->select_from($this->category, 'decide_id', $_SESSION['id']);
-
         echo $_SESSION['id'];
-
-        var_dump($categories);
-
-        return view('outcome/decision', compact('pullData', 'categories'));
-
+        var_dump($categories); 
+       // var_dump($pullData);
+        return view('outcome/decision', compact('categories', 'pullData'));
         // return view('outcome/decision', array('categories'=>$pullCategory,'pullData'=>$pullData));
-     
 
     }
 }

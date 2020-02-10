@@ -4,38 +4,33 @@ const financeScore = parseInt(document.getElementById('financeCat').value);
 
 const purposeScore = parseInt(document.getElementById('purposeCat').value);
 
-const purpose = "";
-
-if(purposeScore > 80) {
-  purpose = "Impactful";
-} else{
-  purpose = "Just another item";
-}
+var purpose = (purposeScore > 80)?"Impactful" : "Just another item";
 
 // Element inside which you want to see the chart.
-let element5 = document.querySelector('#gaugeArea5')
-let theMain = document.querySelector('#main')
-let element6 = document.querySelector('#gaugeArea6')
-let element4 = document.querySelector('#gaugeArea4')
+let element5 = document.querySelector('#purposeChart');
+let theMain = document.querySelector('#main');
+let element6 = document.querySelector('#concernChart');
+let element4 = document.querySelector('#financeChart');
 
-let options1 = {
+let purposeData = {
   arcColors: ['rgb(44, 151, 222)', 'lightgray'],
   arcDelimiters: [80],
   rangeLabel: ['0%', '100%'],
-  centralLabel: '70%',
-}
+  centralLabel: purposeScore,
+};
 
 let main = {
   hasNeedle: true,
-  needleColor: 'black',
-  arcColors: ['rgb(255, 84, 84)', 'rgb(239, 214, 19)', 'rgb(61, 204, 91)'],
-  arcDelimiters: [50, 85, 99.99],
-  arcLabels: ["Don't buy", 'Think', 'Buy'],
-  arcPadding: 6,
+  needleColor: 'blue',
+  arcColors: ['rgb(245, 7, 7)', 'rgb(255, 242, 3)', 'rgb(26, 143, 20)'],
+  arcDelimiters: [65, 85, 99.99],
+  arcLabelFontSize: 10,
+  arcLabels: ["Don't buy", 'Think Again', 'Buy'],
+  arcPadding: 3,
   arcPaddingColor: 'white',
   rangeLabel: ['0', '100'],
-  needleStartValue: 0,
-}
+  needleStartValue: 0  
+};
 
 let options3 = {
     hasNeedle: true,
@@ -45,7 +40,7 @@ let options3 = {
       rangeLabel: ['-10', '10'],
     centralLabel: '2',
     rangeLabelFontSize: 42,
-}
+};
 
  
 let finance = {
@@ -53,33 +48,33 @@ let finance = {
     needleColor: 'black',
     arcColors: ['red', 'yellow', 'green'],
     arcDelimiters: [60, 90],
-    arcPadding: 6,
+    arcPadding: 3,
     arcPaddingColor: 'white',
     arcLabels: ['Struggling?', 'Just ok', 'Strong'],
-    arcLabelFontSize: false,
+    arcLabelFontSize: 10,
     //arcOverEffect: false,
     // label options
     rangeLabel: ['0', '100'],
-    centralLabel: financeScore,
+    // centralLabel: financeScore,
     rangeLabelFontSize: true,
     labelsFont: 'Consolas',
 
-}
+};
 // Drawing and updating the chart.  
 
 GaugeChart
   .gaugeChart(theMain, 400, main)
-  .updateNeedle(totalScore)
+  .updateNeedle(totalScore);
 
 GaugeChart
-  .gaugeChart(element5, 400, options1)
-  .updateNeedle(70)
+  .gaugeChart(element5, 400, purposeData)
+  .updateNeedle(purposeScore);
 
 GaugeChart
   .gaugeChart(element6, 400, options3)
-  .updateNeedle(60)
+  .updateNeedle(60);
 
 GaugeChart
   .gaugeChart(element4, 400, finance)
-  .updateNeedle(financeScore)
+  .updateNeedle(financeScore);
 

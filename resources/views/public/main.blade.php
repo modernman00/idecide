@@ -9,32 +9,80 @@
 
     <div class="notification"></div>
 
-
     <?php
 
     $formArray = [
-                        'email' => 'email',
-                        'string' => 'email',
-                        'password' => 'password',
-                        'status' => ['select',  'Tenant', 'Landlord', 'Agency'],
-                        'checkbox' => 'checkbox',
-                        'token' => 'token',
-                        'button' => 'button',
-                        'Purpose' => ['card', 'Testing', '/img/dad.jpg'],
-                         'Finance' => ['card', 'Finance', '/img/dad.jpg'],
-                          'Purchase' => ['cardSelect', 'Purchase','/img/dad.jpg', 'yes', 'No', 'Not sure']
-                    ];
-                    $form = new App\classes\BuildForm($formArray);
-                    echo "<div class='row'>";
-                    $form->genForm('col-sm-4');
-                    echo "</div>";
+
+        'token' => 'token',     
+        'purchase' => ['card', 
+            'cardText' => 'What do you want to buy? This could be anything?',
+            'cardImg'=>'/img/dad.jpg'   
+        ], 
+        'purpose' => ['card', 
+            'cardText' => 'Why do you need/want it?Think carefully about this question.', 
+            'cardImg'=>'/img/dad.jpg'    
+        ],
+        'finance' => ['cardSelect', 
+            'cardText' => 'How do you intend to source the money to buy this item.', 
+            'cardImg'=>'/img/dad.jpg',
+            'cardOptions' => ['Savings', 'Salary/Bonus/Dividend/Profit', 'Credit Card/Loan/Monthly repayment', 'Gift', 'Free cash'],
+            'cardValue' => [5, 5, 2, 5, 5]
+        ],
+        'necessity' => ['cardSelect', 
+            'cardText' => 'Is this a "Need - necessary" or a "Want - nice to have"?',
+            'cardImg'=>'/img/dad.jpg', 
+            'cardOptions' => ['Yes - Necessity. I really need it', 'I love and want it', 'It is just something nice to have', 'I just feel like spending to spoil myself'],
+            'cardValue' => [5, 4, 3, 2]
+        ],    
+        'reward' => ['cardSelect', 
+            'cardText' => 'If you bought it, how will make you feel?',
+            'cardImg'=>'/img/dad.jpg', 
+            'cardOptions' => ['Very happy even if bought with loan', 'It will add to my self esteem', 'It should make me happy', 'Makes me feel relevant', 'Happy, but may later have regrets', 'It won\'t make a difference to how I feel'],
+            'cardValue' => [5, 5, 3, 2,1,1]
+        ], 
+        'options' => ['cardSelect', 
+            'cardText' => 'Have you considered other options or alternatives?',
+            'cardImg'=>'/img/dad.jpg', 
+            'cardOptions' => ['Yes, but this seems as the best options', 'No, perhaps I should', 'I don\'t need to look at other options', 'Am clear this is what I want.'],
+            'cardValue' => [5, 2, 2, 3]
+        ],   
+
+        'affordability' => ['cardSelect', 
+            'cardText' => 'Can you afford it without stretching your finance?',
+            'cardImg'=>'/img/dad.jpg', 
+            'cardOptions' => ['Yes!', 'Yes, but I may need to cut my expenses', 'Someone else is paying for it', 'Possibe big risk to my finance', 'I think it will be fine'],
+            'cardValue' => [5, 2, 5, 1, 1]
+        ],   
+        'concerns' => ['cardSelect', 
+            'cardText' => 'Do you have concerns about either your debt level/expenses/job?',
+            'cardImg'=>'/img/dad.jpg', 
+            'cardOptions' => ['My income is robust', 'Expenses and debt level are quite low', 'Yes, but it shouldn\'t make a difference', 'I have serious concerns'],
+            'cardValue' => [5, 4, 3, 1]
+        ], 
+        'value' => ['cardSelect', 
+            'cardText' => 'Sometimes, purchase could be an investment in one\'s goal and self esteem?',
+            'cardImg'=>'/img/dad.jpg', 
+            'cardOptions' => ['Yes, I will spur me onto greater things', 'No, it makes no difference', 'I think it should', 'Am unsure until I get it'],
+            'cardValue' => [5, 3, 4, 2]
+        ],
+
+        'checkbox' => 'checkbox',
+        'button' => 'button',
+    ];
+
+
+ 
+    $form = new App\classes\BuildForm($formArray);
+    echo "<div class='row'>";
+    $form->genForm('col-sm-4');
+    echo "</div>";
 
 
 
 
     ?>
 
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-sm-4">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row no-gutters">
@@ -252,27 +300,28 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- SUBMIT FORM --}}
-    <div class="row">
-            <div class="field">
-                    <div class="control">
-                        <label class="checkbox">
-                            <input type="checkbox" id="checkbox">
-                            I agree to the <a href="#">terms and conditions</a>
-                        </label>
-                    </div>
-                </div>
-            
-                
-            
-    </div>
 
-    <div class="field is-grouped">
-                        <div class="control">
-                            <button class="button is-large is-primary" id="submit">Submit</button>
-                        </div>
+
+
+    <div class="form-check mb-4">
+
+        <div class='mb-3'>
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              I agree that iDecide only use the information you provide to 
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit" name="submit">Submit</button>
+    </div>
+    
+
+
+                         
+                   
         
                     </div>
 
