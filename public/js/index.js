@@ -10752,8 +10752,8 @@ var finance = {
   // label options
   rangeLabel: ['0', '100'],
   // centralLabel: financeScore,
-  rangeLabelFontSize: true,
-  labelsFont: 'Consolas'
+  rangeLabelFontSize: true // labelsFont: 'Consolas',
+
 }; // Drawing and updating the chart.  
 
 GaugeChart.gaugeChart(theMain, 400, main).updateNeedle(totalScore);

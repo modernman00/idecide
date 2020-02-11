@@ -57,7 +57,7 @@ let finance = {
     rangeLabel: ['0', '100'],
     // centralLabel: financeScore,
     rangeLabelFontSize: true,
-    labelsFont: 'Consolas',
+    // labelsFont: 'Consolas',
 
 };
 // Drawing and updating the chart.  
