@@ -75,7 +75,7 @@ class Index extends Base
             //clean up the the $_POST data
             $clean = new Clean($_POST);
             $newData = $clean->getSanitisedArray();
-           // var_dump($newData);
+          // var_dump($newData);
             $insert = new Insert;
             $Transaction = new Transaction;
             //begin transaction
@@ -98,13 +98,18 @@ class Index extends Base
             $finance = (int) $newData['affordability'] + (int) $newData['finance'] + (int) $newData['concerns'] + $newData['options']; 
             $purpose = (int) $newData['reward'] + (int) $newData['value'] + (int) $newData['necessity']; 
             // then loop through and add score to get the total score percentage
+
+            $countFinance = 4; // number of variable added up to get $finance
+            $countPurpose = 3;
+            $countNewData = count($newData);
+
             foreach ($newData as $data) {
                 $totalScore += (int) $data;
             }
             // total as a percentage of 100
-            $totalInPercent = ($totalScore / (count($newData)*5) * 100);
-            $financeInPercent = ($finance / (count($finance)*5) * 100);
-            $purposeInPercent = ($purpose / (count($purpose)*5) * 100);
+            $totalInPercent = ($totalScore / ($countNewData*5)) * 100;
+            $financeInPercent = ($finance / ($countFinance*5)) * 100;
+            $purposeInPercent = ($purpose / ($countPurpose*5)) * 100;
             // create a new $_POST variable called total score
             $newData['totalScore'] = (int) $totalInPercent;
             // Get the last inserted data from the autoincrement Id
@@ -124,7 +129,7 @@ class Index extends Base
             $insert->insertData_NoRedirect($newData, $this->tableDec);
             // commit all transactions
             $Transaction->commit();
-            header('Location: /decision');
+           header('Location: /decision');
         } catch (PDOException $e) {
             $Transaction->rollback();
             echo $e->getMessage(), PHP_EOL;
@@ -137,8 +142,8 @@ class Index extends Base
         $tableId = 'decide_id';
         $pullData = $insert->select_join($this->tableGen, $this->tableDec, 'id', $tableId, $_SESSION['id']);
         $categories = $insert->select_from($this->category, 'decide_id', $_SESSION['id']);
-        echo $_SESSION['id'];
-        var_dump($categories); 
+       // echo $_SESSION['id'];
+      //  var_dump($categories); 
        // var_dump($pullData);
         return view('outcome/decision', compact('categories', 'pullData'));
         // return view('outcome/decision', array('categories'=>$pullCategory,'pullData'=>$pullData));

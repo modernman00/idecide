@@ -10756,7 +10756,7 @@ var finance = {
 
 }; // Drawing and updating the chart.  
 
-GaugeChart.gaugeChart(theMain, 400, main).updateNeedle(totalScore);
+GaugeChart.gaugeChart(theMain, 600, main).updateNeedle(totalScore);
 GaugeChart.gaugeChart(element5, 400, purposeData).updateNeedle(purposeScore);
 GaugeChart.gaugeChart(element6, 400, options3).updateNeedle(60);
 GaugeChart.gaugeChart(element4, 400, finance).updateNeedle(financeScore);

@@ -93,7 +93,7 @@
 
     {{-- FINANCE --}}
 
-    <div class="col-sm-4 text-center bg-primary">
+    <div class="col-sm-4 text-center">
 
       <h3 class="catTitle "> Financial Position</h3>
 
@@ -101,13 +101,13 @@
 
     </div>
 
-    <div class="col-sm-4 bg-primary">
+    <div class="col-sm-4">
       <h3 class="catTitle text-center"> Purpose</h3>
       <div id="purposeChart"></div>
 
     </div>
 
-    <div class="col-sm-4 text-center bg-primary">
+    <div class="col-sm-4 text-center">
       <h3 class="catTitle"> Concern</h3>
       <div id="concernChart"></div>
 

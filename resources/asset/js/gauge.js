@@ -63,7 +63,7 @@ let finance = {
 // Drawing and updating the chart.  
 
 GaugeChart
-  .gaugeChart(theMain, 400, main)
+  .gaugeChart(theMain, 600, main)
   .updateNeedle(totalScore);
 
 GaugeChart
