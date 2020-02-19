@@ -4,20 +4,20 @@ const financeScore = parseInt(document.getElementById('financeCat').value);
 
 const purposeScore = parseInt(document.getElementById('purposeCat').value);
 
-var purpose = (purposeScore > 80)?"Impactful" : "Just another item";
+var purpose = (purposeScore > 80)?"Impactful" : "Not Impactful";
 
 // Element inside which you want to see the chart.
-let element5 = document.querySelector('#purposeChart');
+let purChart = document.querySelector('#purposeChart');
 let theMain = document.querySelector('#main');
-let element6 = document.querySelector('#concernChart');
-let element4 = document.querySelector('#financeChart');
+let conChart = document.querySelector('#concernChart');
+let finChart = document.querySelector('#financeChart');
 
-let purposeData = {
-  arcColors: ['rgb(44, 151, 222)', 'lightgray'],
-  arcDelimiters: [80],
-  rangeLabel: ['0%', '100%'],
-  centralLabel: purposeScore,
-};
+// let purposeData = {
+//   arcColors: ['rgb(44, 151, 222)', 'lightgray'],
+//   arcDelimiters: [purposeScore],
+//   rangeLabel: ['0%', '100%'],
+//   centralLabel: '2',
+// };
 
 let main = {
   hasNeedle: true,
@@ -32,23 +32,31 @@ let main = {
   needleStartValue: 0  
 };
 
-let options3 = {
-    hasNeedle: true,
-    outerNeedle: true,
-    needleColor: 'rgb(166, 206, 227)',
-      arcDelimiters: [20, 40, 60],
-      rangeLabel: ['-10', '10'],
-    centralLabel: '2',
-    rangeLabelFontSize: 42,
+
+let purposeData = {
+   hasNeedle: true,
+    needleColor: 'blue',
+  arcColors: ['rgb(245, 7, 7)', 'rgb(255, 242, 3)', 'rgb(26, 143, 20)'],
+  arcDelimiters: [60, 90],
+  arcPadding: 1,
+  arcPaddingColor: 'white',
+  // arcLabels: ['Struggling?', 'Just ok', 'Strong'],
+  arcLabelFontSize: 10,
+  // label options
+  rangeLabel: ['0', '100'],
+  // centralLabel: financeScore,
+  rangeLabelFontSize: true,
+  centralLabel: purpose,
+  rangeLabelFontSize: 15
 };
 
  
 let finance = {
     hasNeedle: true,
     needleColor: 'black',
-    arcColors: ['red', 'yellow', 'green'],
+    arcColors: ['rgb(245, 7, 7)', 'rgb(255, 242, 3)', 'rgb(26, 143, 20)'],
     arcDelimiters: [60, 90],
-    arcPadding: 3,
+    arcPadding: 1,
     arcPaddingColor: 'white',
     arcLabels: ['Struggling?', 'Just ok', 'Strong'],
     arcLabelFontSize: 10,
@@ -67,14 +75,14 @@ GaugeChart
   .updateNeedle(totalScore);
 
 GaugeChart
-  .gaugeChart(element5, 400, purposeData)
+  .gaugeChart(purChart, 400, purposeData)
   .updateNeedle(purposeScore);
 
-GaugeChart
-  .gaugeChart(element6, 400, options3)
-  .updateNeedle(60);
+// GaugeChart
+//   .gaugeChart(conChart, 400, concern)
+//   .updateNeedle(60);
 
 GaugeChart
-  .gaugeChart(element4, 400, finance)
+  .gaugeChart(finChart, 400, finance)
   .updateNeedle(financeScore);
 

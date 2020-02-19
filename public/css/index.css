@@ -282,6 +282,17 @@ body {
   font-family: Hevletica, sans-serif;
 }
 
+.decide_me {
+  height: 300px;
+  width: auto;
+  background-color: blue;
+}
+
+.showDecision {
+  font-size: 4rem;
+  color: red;
+}
+
 .gauge-container {
   width: 150px;
   height: 150px;

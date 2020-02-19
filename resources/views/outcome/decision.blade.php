@@ -5,9 +5,26 @@
 
 @section('content')
 
-<h1 style="text-align:center; color:black;"> DECISION PAGE</h1>
-<br>
-<hr>
+<style>
+
+  
+.decide_me {
+  // background-image: url('/img/decisionHomePage.jpg');
+  // height: 95vh;
+  // background-size: cover;
+  // background-position: center;
+
+}
+</style>
+
+
+<div class="decide_me">
+
+  <h1 class="text-center"> DECISION PAGE</h1>
+  <br>
+  <hr>
+</div>
+
 
 @isset($categories)
     @foreach ($categories as $category)        
@@ -29,12 +46,12 @@
 
 <input type="hidden" name="purposeCat" id="purposeCat" value="{{ $category['purpose'] }}">
 
-
+<div class="container-fluid">
 <div class="row">
 
      {{-- THE DECISION GRAPH --}}
 
-    <div class="col-md-6 col-sm-12">
+    <div class="col-sm-6">
 
         <div style="width: 200px; height: 320px;">
 
@@ -45,14 +62,15 @@
 
     {{-- {{ --ALGORITHMFORTHEMAINDECISION-- }} --}}
 
-    <div class="col-md-6 col-lg-6 col-sm-12">
+    <div class="col-sm-6 showDecision">
         @if ($data['totalScore'] > 85)
-           <h4 class="text-white bg-success">
-             <i> Good News! Based strictly on the information you provided, iDecide believes that you could consider buying the  {{ $data['purchase'] }}.</i> 
+           <h4 class="text-white">
+             <h4 class="bg-success">
+              <i class="fas fa-check"></i><i> Good News! Based strictly on the information you provided, iDecide believes that you could consider buying the  {{ $data['purchase'] }}.</i> 
            </h4>
           @elseif($data['totalScore'] > 65 && $data['totalScore'] < 85 )
             <div class="text-white ">
-                <h4 class="bg-warning py-4 px-4">Please, have a re-think about buying the  {{ $data['purchase'] }}. These are the areas we think you should consider before making the final decision:</h4>            
+                <h4 class="bg-warning py-4 px-4"><i class="fas fa-exclamation"></i>Please, have a re-think about buying the  {{ $data['purchase'] }}. These are the areas we think you should consider before making the final decision:</h4>            
                   <ul class="text-muted">               
                         @if($data['reward'] < 4) 
                           <li> <i>You should consider if buying the  {{ $data['purchase'] }} will truly make you happy in the long run </i></li>
@@ -67,7 +85,7 @@
             </div>
           @else
           <div class="text-white">
-            <h4 class="bg-danger py-4 px-4"><i>Based on your response, we will advise you against buying the {{ $data['purchase'] }} .  Please see areas of concerns below</i> </h4>        
+            <h4 class="bg-danger py-4 px-4"><i class="fas fa-ban"></i></i><i>Based on your response, we will advise you against buying the {{ $data['purchase'] }} .  Please see areas of concerns below</i> </h4>        
                   <ul class="text-muted">               
                         @if($data['reward'] < 4) 
                           <li> <i>You should consider if this purchase will truly make you happy in the long run </i></li>
@@ -89,11 +107,11 @@
 <hr>
 
 {{-- GRAPH BREAKDOWN IN CATEGORY --}}
-  <div class="row">
+  <div class="row ">
 
     {{-- FINANCE --}}
 
-    <div class="col-sm-4 text-center">
+    <div class="col-sm-6 text-center breakdown">
 
       <h3 class="catTitle "> Financial Position</h3>
 
@@ -101,17 +119,19 @@
 
     </div>
 
-    <div class="col-sm-4">
-      <h3 class="catTitle text-center"> Purpose</h3>
+    <hr>
+
+    <div class="col-sm-6 text-center breakdown ">
+      <h3 class="catTitle "> Purpose</h3>
       <div id="purposeChart"></div>
 
     </div>
 
-    <div class="col-sm-4 text-center">
+    {{-- <div class="col-sm-6 text-center">
       <h3 class="catTitle"> Concern</h3>
       <div id="concernChart"></div>
 
-    </div>
+    </div> --}}
 
 
 

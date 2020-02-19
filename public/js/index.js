@@ -10703,21 +10703,23 @@ return jQuery;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var totalScore = parseInt(document.getElementById('totalScore').value);
 var financeScore = parseInt(document.getElementById('financeCat').value);
 var purposeScore = parseInt(document.getElementById('purposeCat').value);
-var purpose = purposeScore > 80 ? "Impactful" : "Just another item"; // Element inside which you want to see the chart.
+var purpose = purposeScore > 80 ? "Impactful" : "Not Impactful"; // Element inside which you want to see the chart.
 
-var element5 = document.querySelector('#purposeChart');
+var purChart = document.querySelector('#purposeChart');
 var theMain = document.querySelector('#main');
-var element6 = document.querySelector('#concernChart');
-var element4 = document.querySelector('#financeChart');
-var purposeData = {
-  arcColors: ['rgb(44, 151, 222)', 'lightgray'],
-  arcDelimiters: [80],
-  rangeLabel: ['0%', '100%'],
-  centralLabel: purposeScore
-};
+var conChart = document.querySelector('#concernChart');
+var finChart = document.querySelector('#financeChart'); // let purposeData = {
+//   arcColors: ['rgb(44, 151, 222)', 'lightgray'],
+//   arcDelimiters: [purposeScore],
+//   rangeLabel: ['0%', '100%'],
+//   centralLabel: '2',
+// };
+
 var main = {
   hasNeedle: true,
   needleColor: 'blue',
@@ -10730,21 +10732,29 @@ var main = {
   rangeLabel: ['0', '100'],
   needleStartValue: 0
 };
-var options3 = {
+
+var purposeData = _defineProperty({
   hasNeedle: true,
-  outerNeedle: true,
-  needleColor: 'rgb(166, 206, 227)',
-  arcDelimiters: [20, 40, 60],
-  rangeLabel: ['-10', '10'],
-  centralLabel: '2',
-  rangeLabelFontSize: 42
-};
+  needleColor: 'blue',
+  arcColors: ['rgb(245, 7, 7)', 'rgb(255, 242, 3)', 'rgb(26, 143, 20)'],
+  arcDelimiters: [60, 90],
+  arcPadding: 1,
+  arcPaddingColor: 'white',
+  // arcLabels: ['Struggling?', 'Just ok', 'Strong'],
+  arcLabelFontSize: 10,
+  // label options
+  rangeLabel: ['0', '100'],
+  // centralLabel: financeScore,
+  rangeLabelFontSize: true,
+  centralLabel: purpose
+}, "rangeLabelFontSize", 15);
+
 var finance = {
   hasNeedle: true,
   needleColor: 'black',
-  arcColors: ['red', 'yellow', 'green'],
+  arcColors: ['rgb(245, 7, 7)', 'rgb(255, 242, 3)', 'rgb(26, 143, 20)'],
   arcDelimiters: [60, 90],
-  arcPadding: 3,
+  arcPadding: 1,
   arcPaddingColor: 'white',
   arcLabels: ['Struggling?', 'Just ok', 'Strong'],
   arcLabelFontSize: 10,
@@ -10757,9 +10767,11 @@ var finance = {
 }; // Drawing and updating the chart.  
 
 GaugeChart.gaugeChart(theMain, 600, main).updateNeedle(totalScore);
-GaugeChart.gaugeChart(element5, 400, purposeData).updateNeedle(purposeScore);
-GaugeChart.gaugeChart(element6, 400, options3).updateNeedle(60);
-GaugeChart.gaugeChart(element4, 400, finance).updateNeedle(financeScore);
+GaugeChart.gaugeChart(purChart, 400, purposeData).updateNeedle(purposeScore); // GaugeChart
+//   .gaugeChart(conChart, 400, concern)
+//   .updateNeedle(60);
+
+GaugeChart.gaugeChart(finChart, 400, finance).updateNeedle(financeScore);
 
 /***/ }),
 
