@@ -17,13 +17,12 @@
 }
 </style>
 
-
+{{-- 
 <div class="decide_me">
 
-  <h1 class="text-center"> DECISION PAGE</h1>
-  <br>
+
   <hr>
-</div>
+</div> --}}
 
 
 @isset($categories)
@@ -49,6 +48,12 @@
 <div class="container-fluid">
 <div class="row">
 
+ 
+    {{-- {{ --ALGORITHMFORTHEMAINDECISION-- }} --}}
+    <div class="decide_me">  
+      
+      <h1 class="text-center"> DECISION PAGE</h1>
+      <br>
      {{-- THE DECISION GRAPH --}}
 
     <div class="col-sm-6">
@@ -59,13 +64,10 @@
    
         </div>
     </div>
-
-    {{-- {{ --ALGORITHMFORTHEMAINDECISION-- }} --}}
-
     <div class="col-sm-6 showDecision">
         @if ($data['totalScore'] > 85)
            <h4 class="text-white">
-             <h4 class="bg-success">
+             <h4>
               <i class="fas fa-check"></i><i> Good News! Based strictly on the information you provided, iDecide believes that you could consider buying the  {{ $data['purchase'] }}.</i> 
            </h4>
           @elseif($data['totalScore'] > 65 && $data['totalScore'] < 85 )
@@ -100,7 +102,7 @@
           </div>            
         @endif
     </div>
-
+    </div>
 
 </div>
 

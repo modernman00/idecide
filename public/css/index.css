@@ -283,14 +283,15 @@ body {
 }
 
 .decide_me {
-  height: 300px;
-  width: auto;
-  background-color: blue;
+  background-image: url("/img/decisionHomePage.jpg");
+  height: 95vh;
+  background-size: cover;
+  background-position: center;
 }
 
 .showDecision {
   font-size: 4rem;
-  color: red;
+  color: white;
 }
 
 .gauge-container {
