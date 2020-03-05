@@ -16,52 +16,52 @@
         'token' => 'token',     
         'purchase' => ['card', 
             'cardText' => 'What do you want to buy? This could be anything?',
-            'cardImg'=>'/img/dad.jpg'   
+            'cardImg'=>'/img/questions/purchase1.jpg'   
         ], 
         'purpose' => ['card', 
             'cardText' => 'Why do you need/want it?Think carefully about this question.', 
-            'cardImg'=>'/img/dad.jpg'    
+            'cardImg'=>'/img/questions/purpose.jpg'    
         ],
         'finance' => ['cardSelect', 
             'cardText' => 'How do you intend to source the money to buy this item.', 
-            'cardImg'=>'/img/dad.jpg',
+            'cardImg'=>'/img/questions/finance.jpg',
             'cardOptions' => ['Savings', 'Salary/Bonus/Dividend/Profit', 'Credit Card/Loan/Monthly repayment', 'Gift', 'Free cash'],
             'cardValue' => [5, 5, 2, 5, 5]
         ],
         'necessity' => ['cardSelect', 
             'cardText' => 'Is this a "Need - necessary" or a "Want - nice to have"?',
-            'cardImg'=>'/img/dad.jpg', 
+            'cardImg'=>'/img/questions/purpose2.jpg', 
             'cardOptions' => ['Yes - Necessity. I really need it', 'I love and want it', 'It is just something nice to have', 'I just feel like spending to spoil myself'],
             'cardValue' => [5, 4, 3, 2]
         ],    
         'reward' => ['cardSelect', 
             'cardText' => 'If you bought it, how will make you feel?',
-            'cardImg'=>'/img/dad.jpg', 
+            'cardImg'=>'/img/questions/reward.jpg', 
             'cardOptions' => ['Very happy even if bought with loan', 'It will add to my self esteem', 'It should make me happy', 'Makes me feel relevant', 'Happy, but may later have regrets', 'It won\'t make a difference to how I feel'],
             'cardValue' => [5, 5, 3, 2,1,1]
         ], 
         'options' => ['cardSelect', 
             'cardText' => 'Have you considered other options or alternatives?',
-            'cardImg'=>'/img/dad.jpg', 
+            'cardImg'=>'/img/questions/options.jpg', 
             'cardOptions' => ['Yes, but this seems as the best options', 'No, perhaps I should', 'I don\'t need to look at other options', 'Am clear this is what I want.'],
             'cardValue' => [5, 2, 2, 3]
         ],   
 
         'affordability' => ['cardSelect', 
             'cardText' => 'Can you afford it without stretching your finance?',
-            'cardImg'=>'/img/dad.jpg', 
+            'cardImg'=>'/img/questions/affordale2.jpg', 
             'cardOptions' => ['Yes!', 'Yes, but I may need to cut my expenses', 'Someone else is paying for it', 'Possibe big risk to my finance', 'I think it will be fine'],
             'cardValue' => [5, 2, 5, 1, 1]
         ],   
         'concerns' => ['cardSelect', 
             'cardText' => 'Do you have concerns about either your debt level/expenses/job?',
-            'cardImg'=>'/img/dad.jpg', 
+            'cardImg'=>'/img/questions/concern2.jpg', 
             'cardOptions' => ['My income is robust', 'Expenses and debt level are quite low', 'Yes, but it shouldn\'t make a difference', 'I have serious concerns'],
             'cardValue' => [5, 4, 3, 1]
         ], 
         'value' => ['cardSelect', 
             'cardText' => 'Sometimes, purchase could be an investment in one\'s goal and self esteem?',
-            'cardImg'=>'/img/dad.jpg', 
+            'cardImg'=>'/img/questions/value.jpg', 
             'cardOptions' => ['Yes, I will spur me onto greater things', 'No, it makes no difference', 'I think it should', 'Am unsure until I get it'],
             'cardValue' => [5, 3, 4, 2]
         ],
@@ -74,7 +74,7 @@
  
     $form = new App\classes\BuildForm($formArray);
     echo "<div class='row'>";
-    $form->genForm('col-sm-4');
+    $form->genForm('col-xs-4');
     echo "</div>";
 
 

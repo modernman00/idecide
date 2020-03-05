@@ -11,7 +11,6 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     <link rel="stylesheet" href="/css/index.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
     <script src="https://unpkg.com/gauge-chart@latest/dist/bundle.js"></script>
  
 </head>

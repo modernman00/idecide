@@ -146,7 +146,7 @@ class BuildForm extends AlterTable
                     <div class='card mb-3' style='max-width: 400px; min-height: 255px;'>
                         <div class='row no-gutters'>
                             <div class='col-md-3'>
-                                <img src= ".$this->EntValue[$i]['cardImg']." class='card-img img-fluid rounded-circle ml-1 mt-1'  alt=$nameKey pic format not acceptable>
+                                <img src= ".$this->EntValue[$i]['cardImg']." class='card-img img-fluid ml-1 mt-1'  alt=$nameKey pic format not acceptable>
                             </div>
                             <div class='col-md-8'>
                                 <div class='card-body'>
@@ -183,7 +183,7 @@ class BuildForm extends AlterTable
                     <div class='card mb-3' style='max-width: 400px; min-height: 255px;'>
                         <div class='row no-gutters'>
                             <div class='col-md-3'>
-                                <img src= ".$this->EntValue[$i]['cardImg']." class='card-img rounded-circle ml-1 mt-1 img-fluid' id=$nameKey-Image-Id  alt=$nameKey pic format not acceptable>
+                                <img src= ".$this->EntValue[$i]['cardImg']." class='card-img ml-1 mt-1 img-fluid' id=$nameKey-Image-Id  alt=$nameKey pic format not acceptable>
                             </div>
                             <div class='col-md-9'>
                                 <div class='card-body'>
