@@ -26,7 +26,7 @@
 
 <input type="hidden" name="purposeCat" id="purposeCat" value="{{ $category['purpose'] }}">
 
-<div class="container-fluid">
+<div class="container">
     {{-- {{ --ALGORITHMFORTHEMAINDECISION-- }} --}}  
     <h1 class="text-center text-primary"> DECISION PAGE</h1>
       <hr>
@@ -34,7 +34,7 @@
     <div class="row">     
         {{-- THE DECISION GRAPH --}}
 
-      <div class="col-xs-6 showDecChart">
+      <div class="col-sm-6">
          
             <div id="main" class="img-fluid mw-50"></div>   
           
@@ -42,7 +42,7 @@
 
         {{-- THE DECISION COMMENT --}}
 
-      <div class="col-md-6 col-xs-6 showDecision">
+      <div class="col-sm-6">
           @if ($data['totalScore'] > 85)
             <div class="success bg-success">
 
@@ -52,7 +52,7 @@
 
             </div>           
             @elseif($data['totalScore'] > 65 && $data['totalScore'] < 85 )
-              <div class="text-white bg-warning ">
+              <div class="text-white bg-warning">
                   <h4 class=" py-4 px-4">
                     <i class="fas fa-exclamation"></i>Please, have a re-think about buying the  {{ $data['purchase'] }}. These are the areas we think you should consider before making the final decision:
                   </h4>            
@@ -64,7 +64,7 @@
                             <li class='mr-1'><i> We think you should re-consider how you intend to pay for the {{ $data['purchase'] }}. Give this a second thought </i></li> 
                           @endif                   
                           @if($data['affordability'] < 5)
-                            <li> We think this will be an affordability issue so it is something to consider</li>                    
+                            <li> We think this would be an affordability issue so it is something to consider</li>                    
                           @endif              
                   </ul>
               </div>
@@ -92,6 +92,7 @@
   {{-- GRAPH BREAKDOWN IN CATEGORY --}}    
   <h3 class="mb-3 text-center text-primary ">OTHER EVALUATIONS </h3>
   <hr> 
+
     <div class="row otherConsideration">
       {{-- FINANCE --}}
       <div class="col-sm-6 text-center breakdown">

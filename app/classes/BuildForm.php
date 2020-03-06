@@ -143,12 +143,12 @@ class BuildForm extends AlterTable
                 */
             } elseif ($this->EntValue[$i][0] === 'card') {
                 echo   " <div class='$rowNumber'>
-                    <div class='card mb-3' style='max-width: 400px; min-height: 255px;'>
+                    <div class='card mb-3' style='max-width: 540px; min-height: 255px;'>
                         <div class='row no-gutters'>
-                            <div class='col-md-3'>
+                            <div class='col-sm-4'>
                                 <img src= ".$this->EntValue[$i]['cardImg']." class='card-img img-fluid ml-1 mt-1'  alt=$nameKey pic format not acceptable>
                             </div>
-                            <div class='col-md-8'>
+                            <div class='col-sm-8'>
                                 <div class='card-body'>
                                     <h5 class='card-title text-info text-uppercase'>$nameKey</h5>
                                     <p class='card-text font-italic'>" .$this->EntValue[$i]['cardText']."</p>
@@ -157,7 +157,7 @@ class BuildForm extends AlterTable
                             </div>
                         </div>
 
-                        <div class = row>
+                        <div class = row no-gutters>
 
                             <div class = col-sm-10>
 
@@ -169,23 +169,14 @@ class BuildForm extends AlterTable
 
                     </div>
                 </div> ";
-                /*
-                'Purchase' => ['cardSelect', 
-                            'cardText' => 'How do you intend to source the money to buy this item.',
-                            'cardImg'=>'/img/dad.jpg', 
-                            'cardOptions' => ['yes', 'No', 'Not sure'],
-                            'cardValue' => [5, 4, 3, 1]
-                        ]
-
-                */
             } elseif ($this->EntValue[$i][0] === 'cardSelect') {
                 echo   " <div class='$rowNumber'>
-                    <div class='card mb-3' style='max-width: 400px; min-height: 255px;'>
+                    <div class='card mb-1' style='max-width: 540px; min-height: 255px;'>
                         <div class='row no-gutters'>
-                            <div class='col-md-3'>
+                            <div class='col-sm-3'>
                                 <img src= ".$this->EntValue[$i]['cardImg']." class='card-img ml-1 mt-1 img-fluid' id=$nameKey-Image-Id  alt=$nameKey pic format not acceptable>
                             </div>
-                            <div class='col-md-9'>
+                            <div class='col-sm-9'>
                                 <div class='card-body'>
                                     <h5 class='card-title text-uppercase text-info'>$nameKey</h5>
                                     <p class='card-text font-italic'>" .$this->EntValue[$i]['cardText']."</p>
