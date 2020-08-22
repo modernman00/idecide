@@ -44,19 +44,19 @@
 
       <div class="col-sm-6">
           @if ($data['totalScore'] > 85)
-            <div class="success bg-success">
+            <div class="success">
 
               <h4 class="text-black">
-                  <span class="dec"><i class="fas fa-check" style="color:white;"></i><i> Good News!</span> Based strictly on the information you provided, iDecide believes that you are in a good position to buy the  {{ $data['purchase'] }}.</i> 
+                  <span class="dec"><i> Good News!</span> Based strictly on the information you provided, iDecide believes that you are in a good position to buy the  {{ $data['purchase'] }}.</i> 
               </h4>
 
             </div>           
             @elseif($data['totalScore'] > 65 && $data['totalScore'] < 85 )
-              <div class="text-white bg-warning">
+              <div class="text-white amber">
                   <h4 class=" py-4 px-4">
-                    <i class="fas fa-exclamation"></i>Please, have a re-think about buying the  {{ $data['purchase'] }}. These are the areas we think you should consider before making the final decision:
+                     We suggest you should have a re-think about buying the  {{ $data['purchase'] }}, and hese are the things  you should consider before making the final decision:
                   </h4>            
-                  <ul class="text-muted">               
+                  <ul class="text-white">               
                           @if($data['reward'] < 4) 
                             <li> <i>You should consider if buying the  {{ $data['purchase'] }} will truly make you happy in the long run </i></li>
                           @endif 
@@ -69,8 +69,8 @@
                   </ul>
               </div>
             @else
-            <div class="text-white">
-              <h4 class="bg-danger py-4 px-4"><i class="fas fa-ban"></i></i><i>Based on your response, we will advise you against buying the {{ $data['purchase'] }} .  Please see areas of concerns below</i> </h4>        
+            <div class="text-white stop">
+              <h4 class="py-4 px-4"><i>Based on your response, we will advise you against buying the {{ $data['purchase'] }} .  Please see areas of concerns below</i> </h4>        
                     <ul class="text-muted">               
                           @if($data['reward'] < 4) 
                             <li> <i>You should consider if this purchase will truly make you happy in the long run </i></li>

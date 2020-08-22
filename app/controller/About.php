@@ -11,6 +11,7 @@ class About extends Base
     public function show() 
     {
     return view('public/about');
+
     }
 }
 

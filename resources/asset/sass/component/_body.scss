@@ -9,11 +9,30 @@
   width: 100%;
   color:white;
   padding: 2rem;
-
-  // height: 300px;
-  // width: auto;
-  // background-color: blue;
+  background: url("/img/success.jpg");
+  background-size: cover;
 }
+
+.amber {
+  height: auto;
+  width: 100%;
+  color:white;
+  padding: 1rem;
+  background: url("/img/thinking.jpg");
+  background-size: cover;
+}
+
+.stop {
+  height: auto;
+  width: 100%;
+  color:white;
+  padding: 2rem;
+  background: url("/img/stop.jpg");
+  background-size: cover;
+}
+
+
+
 
 
 .dec {

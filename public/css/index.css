@@ -287,10 +287,26 @@ body {
   width: 100%;
   color: white;
   padding: 2rem;
+  background: url("/img/success.jpg");
+  background-size: cover;
 }
 
-.showDecision {
-  font-size: 4rem;
+.amber {
+  height: auto;
+  width: 100%;
+  color: white;
+  padding: 1rem;
+  background: url("/img/thinking.jpg");
+  background-size: cover;
+}
+
+.stop {
+  height: auto;
+  width: 100%;
+  color: white;
+  padding: 2rem;
+  background: url("/img/stop.jpg");
+  background-size: cover;
 }
 
 .dec {
@@ -305,18 +321,6 @@ hr {
 .otherConsideration {
   background-color: rgba(160, 145, 145, 0.836);
   color: whitesmoke;
-}
-
-.showDecChart {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-.showDecision {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
 }
 
 .gauge-container {
