@@ -1,17 +1,17 @@
 {
-  "name": "idecide",
+  "name": "bcp",
   "version": "1.0.0",
-  "description": "decision making app",
+  "description": "care recruitment agency",
   "main": "index",
   "typings": "index",
   "scripts": {
-    "compile:sass": "node-sass resources/asset/sass/main.scss public/css/index.css -w",
     "dev": "npm run development",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "npm run development -- --watch",
-    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
     "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "production": "mix --production"
   },
   "repository": {
     "type": "git",
@@ -25,19 +25,14 @@
   "homepage": "https://github.com/modernman00/idecide#readme",
   "devDependencies": {
     "cross-env": "^6.0.3",
-    "laravel-mix": "^5.0.0",
-    "node-sass": "^4.13.1",
+    "laravel-mix": "^6.0.43",
     "resolve-url-loader": "^3.1.0",
     "sass-loader": "^8.0.0",
     "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.41.2"
+    "webpack": "^5.9.0"
   },
   "dependencies": {
-    "bulma": "^0.8.0",
-    "fibers": "^4.0.2",
-    "g": "^2.0.1",
-    "gauge-chart": "^0.5.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.6.0",
     "npm": "^6.13.7",
     "sass": "^1.23.1",
     "svg-gauge": "^1.0.6"

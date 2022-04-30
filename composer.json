@@ -1,5 +1,5 @@
-{  "name": "idecide",
-    "description": "online tool to help you decide",
+{  "name": "bcp/bcp",
+    "description": "best care professional",
     "require": {
         "twig/twig": "^2.11",
         "altorouter/altorouter": "^1.2",

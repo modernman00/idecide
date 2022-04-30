@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: Kingthings_Petrock
+font link: http://www.kingthingsfonts.co.uk/fonts/fonts.htm
+font author: Kingthings
+font author site: http://www.kingthingsfonts.co.uk/
+Slogan Font: KaushanScript-Regular.ttf
+
+icon designer: Alfredo @ IconsAlfredo.com
+icon designer link: /AlfredoCreates
+        
+{"bg-gradient-0":"#666C35","bg-gradient-1":"#77D636","icon":"#ffffff","font":"#ffffff","slogan":"#ffffff"}
+      

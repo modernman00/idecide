@@ -1,26 +1,7 @@
-@import "abstracts/functions";
-@import "abstracts/variables";
-@import "abstracts/_mixins";
 
-@import "base/base";
-@import "base/animation";
-@import "base/typography";
-@import "base/utilities";
+@import "index";
+@import "owlCarousel";
+@import "flex-slider";
 
-@import "component/header";
-@import "component/column";
-@import "component/body";
-@import "component/gauge";
-
-@import "bulma/sass/utilities/_all";
-@import "bulma/sass/layout/_all";
-@import "bulma/sass/grid/_all";
-@import "bulma/sass/elements/button";
-@import "bulma/sass/components/card";
-@import "bulma/sass/elements/container";
-@import "bulma/sass/elements/image";
-@import "bulma/sass/form/shared";
-@import "bulma/sass/form/select";
-@import "bulma/sass/form/checkbox-radio";
 
 
