@@ -12,7 +12,7 @@ class RouteDispatch
     protected $controller;
     protected $method;
 
-    function __construct(AltoRouter $router)
+    function dispatch(AltoRouter $router)
     {
         $this->match = $router->match();
 

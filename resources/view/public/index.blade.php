@@ -434,7 +434,7 @@ As a team, we also believe that teamwork is key for delivering quality services 
 
       <!-- Bootstrap core JavaScript -->
     <script src="assets/js/vendor/jquery.min.js"></script>
-    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    {{-- <script src="assets/js/vendor/bootstrap.bundle.min.js"></script> --}}
 
     <!-- Additional Scripts -->
     <script src="assets/js/jquery.singlePageNav.min.js"></script>
